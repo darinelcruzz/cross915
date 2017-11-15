@@ -8,7 +8,7 @@ class MemberController extends Controller
 {
     function index()
     {
-        //
+        return view('members.index');
     }
 
     function create()

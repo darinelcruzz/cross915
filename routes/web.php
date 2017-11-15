@@ -26,4 +26,8 @@ Route::get('correos', function () {
     return new App\Mail\MarkdownMail;
 });
 
-Route::resource('members', 'MemberController');
+Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
+    $ctrl = 'MemberController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+});

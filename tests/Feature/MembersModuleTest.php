@@ -10,7 +10,9 @@ class MembersModuleTest extends TestCase
     /** @test */
     function loads_the_members_list()
     {
-        $this->assertTrue(true);
+        $this->get(route('members.index'))
+            ->assertStatus(200)
+            ->assertSee('Lista de usuarios');
     }
 
     /** @test */
