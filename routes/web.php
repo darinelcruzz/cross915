@@ -25,3 +25,5 @@ Route::get('enviar', 'TestsController@send')->name('send');
 Route::get('correos', function () {
     return new App\Mail\MarkdownMail;
 });
+
+Route::resource('members', 'MemberController');

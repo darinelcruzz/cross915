@@ -7,15 +7,17 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    /** @test */
+    function loads_home_page()
     {
-        $response = $this->get('/');
+        $this->get('/')
+            ->assertStatus(200);
+    }
 
-        $response->assertStatus(200);
+    /** @test */
+    function loads_tests_page()
+    {
+        $this->get('/tests')
+            ->assertStatus(200);
     }
 }
