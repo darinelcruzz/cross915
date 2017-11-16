@@ -1,7 +1,7 @@
 @extends('root')
 
 @section('htmlheader_title')
-    - Miembros
+    - Entrenadores
 @endsection
 
 @section('content-header')
@@ -10,27 +10,23 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-12">
-            <solid-box color="danger" title="Lista de miembros">
+        <div class="col-md-6">
+            <solid-box color="danger" title="Entrenadores">
                 <data-table example="1">
                     <template slot="header">
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Correo</th>
                             <th>Cumpleaños</th>
-                            <th>Miembro desde</th>
                         </tr>
                     </template>
 
                     <template slot="body">
-                        @foreach ($members as $member)
+                        @foreach ($coaches as $coach)
                             <tr>
-                                <td>{{ $member->id }}</td>
-                                <td>{{ $member->name }}</td>
-                                <td>{{ $member->email }}</td>
-                                <td>{{ $member->birthday }}</td>
-                                <td>{{ $member->created_at }}</td>
+                                <td>{{ $coach->id }}</td>
+                                <td>{{ $coach->name }}</td>
+                                <td>{{ $coach->birthday }}</td>
                             </tr>
                         @endforeach
                     </template>

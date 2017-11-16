@@ -1,19 +1,13 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('root');
 })->name('home');
+
+Route::get('salir', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('getout');
 
 Route::view('root', 'tests');
 Route::view('spa', 'website.root');
@@ -30,4 +24,32 @@ Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
     $ctrl = 'MemberController';
     Route::get('/', usesas($ctrl, 'index'));
     Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+});
+
+Route::group(['prefix' => 'entrenadores', 'as' => 'coaches.'], function () {
+    $ctrl = 'CoachController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{coach}', usesas($ctrl, 'edit'));
+    Route::post('editar/{coach}', usesas($ctrl, 'update'));
+});
+
+Route::group(['prefix' => 'horarios', 'as' => 'schedules.'], function () {
+    $ctrl = 'ScheduleController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{schedule}', usesas($ctrl, 'edit'));
+    Route::post('editar/{schedule}', usesas($ctrl, 'update'));
+});
+
+Route::group(['prefix' => 'clases', 'as' => 'trainings.'], function () {
+    $ctrl = 'TrainingController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{training}', usesas($ctrl, 'edit'));
+    Route::post('editar/{training}', usesas($ctrl, 'update'));
 });

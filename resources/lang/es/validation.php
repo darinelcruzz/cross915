@@ -150,6 +150,9 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
+        'membership_id'         => 'membresía',
+        'schedule_id'           => 'horario',
+        'birthdate'             => 'fecha de nacimiento',
     ],
 
 ];

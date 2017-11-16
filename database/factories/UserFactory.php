@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,9 @@ $factory->define(App\User::class, function (Faker $faker) {
     static $password;
 
     return [
-        'name' => 'Lab3',
-        'email' => 'admin',
-        'level' => '1',
-        'password' => Hash::make('helefante'),
-        'nickname' => 'helefante',
-        'remember_token' => str_random(10),
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'level' => '3',
+        'password' => Hash::make($faker->userName)
     ];
 });

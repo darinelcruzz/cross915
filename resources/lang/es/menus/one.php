@@ -2,24 +2,45 @@
 
 return [
 
-    'first' => [
+    'members' => [
         'title' => 'Simple',
         'icon' => 'fa fa-user',
         'route' => 'home'
     ],
 
-    'second' => [
-        'title' => 'Multinivel',
-        'icon' => 'fa fa-car',
+    'members' => [
+        'title' => 'Miembros',
+        'icon' => 'fa fa-user-circle-o',
         'submenu' => [
-            'second.one' => [
-                'title' => 'Uno',
-                'route' => 'home'
+            'index' => [
+                'title' => 'Lista',
+                'route' => 'members.index'
             ],
-            'second.two' => [
-                'title' => 'Dos',
-                'route' => 'home'
+            'create' => [
+                'title' => 'Agregar',
+                'route' => 'members.create'
             ],
         ]
+    ],
+
+    'schedules' => [
+        'title' => 'Horarios',
+        'icon' => 'fa fa-clock-o',
+        'submenu' => [
+            'index' => [
+                'title' => 'Lista',
+                'route' => 'schedules.index'
+            ],
+            'classes' => [
+                'title' => 'Clases',
+                'route' => 'trainings.index'
+            ],
+        ]
+    ],
+
+    'logout' => [
+        'title' => 'Salir',
+        'icon' => 'fa fa-sign-out',
+        'route' => 'getout'
     ],
 ];

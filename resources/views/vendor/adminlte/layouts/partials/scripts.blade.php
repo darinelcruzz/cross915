@@ -12,11 +12,11 @@
     $(function () {
         $('#example1').DataTable()
         $('#exampleS').DataTable({
-          'paging'      : true,
+          'paging'      : false,
           'lengthChange': false,
           'searching'   : false,
           'ordering'    : true,
-          'info'        : true,
+          'info'        : false,
           'autoWidth'   : false
         })
     })

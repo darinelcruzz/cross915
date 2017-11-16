@@ -3,9 +3,7 @@
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-        @if (!Auth::check())
-            @include('adminlte::layouts.partials.menu_items', ['items' => trans('menus/one')])
-        @endif
+        @include('adminlte::layouts.partials.menu_items', ['items' => trans('menus/one')])
     </section>
     <!-- /.sidebar -->
 </aside>

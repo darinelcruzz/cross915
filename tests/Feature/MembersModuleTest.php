@@ -11,15 +11,17 @@ class MembersModuleTest extends TestCase
     function loads_the_members_list()
     {
         $this->get(route('members.index'))
+            ->assertViewIs('members.index')
             ->assertStatus(200)
-            ->assertSee('Lista de usuarios');
+            ->assertSee('Lista de miembros');
     }
 
     /** @test */
     function creates_a_member()
     {
         $this->get(route('members.create'))
+            ->assertViewIs('members.create')
             ->assertStatus(200)
-            ->assertSee('Crear usuario');
+            ->assertSee('Crear miembro');
     }
 }
