@@ -14,6 +14,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "maatwebsite/excel": "~2.1.0",
+        "michelf/php-markdown": "^1.7",
         "styde/html": "~1.4"
     },
     "require-dev": {

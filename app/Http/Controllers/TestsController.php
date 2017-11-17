@@ -27,7 +27,30 @@ class TestsController extends Controller
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
 
-        return view('tests', ['chart' => $chart]);
+        $markdown = "
+# Rutina 1
+
+### Ejericios
+
+1. 10 de algo
+2. 20 de otro
+3. 15 de otro uno
+
+           function () {
+
+           }
+
+Más info: [Google](https://www.google.com)
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")
+
+> Victor Cancino
+
+***
+        ";
+
+        return view('tests', compact('chart', 'markdown'));
     }
 
     function send()

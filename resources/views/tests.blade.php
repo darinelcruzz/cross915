@@ -128,6 +128,12 @@
                 <pitem label="Premios">2</pitem>
             </profile>
         </div>
+
+        <div class="col-md-5">
+            <simple-box title="Markdown" color="danger">
+                {!! toMD($markdown) !!}
+            </simple-box>
+        </div>
     </div>
 
 @endsection
