@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MembersModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     function loads_the_members_list()
     {
@@ -33,5 +35,15 @@ class MembersModuleTest extends TestCase
         $this->get(route('members.edit', ['member' => $member->id]))
             ->assertViewIs('members.edit')
             ->assertSee('Editar miembro');
+    }
+
+    /** @test */
+    function shows_a_member()
+    {
+        $member = factory(\App\Member::class)->create();
+
+        $this->get(route('members.show', ['member' => $member->id]))
+            ->assertViewIs('members.show')
+            ->assertSee('Detalles miembro');
     }
 }

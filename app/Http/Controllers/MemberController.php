@@ -28,6 +28,7 @@ class MemberController extends Controller
             'name' => 'required',
             'birthdate' => 'required',
             'gender' => 'required',
+            'blood' => 'required'
         ]);
 
         $member = Member::create($request->all());
@@ -54,9 +55,18 @@ class MemberController extends Controller
         return view('members.edit', compact('member', 'memberships', 'schedules'));
     }
 
-    function update(Request $request, $id)
+    function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'birthdate' => 'required',
+            'gender' => 'required',
+            'blood' => 'required'
+        ]);
+
+        Member::find($request->id)->update($request->all());
+
+        return redirect(route('members.index'));
     }
 
     function destroy($id)
