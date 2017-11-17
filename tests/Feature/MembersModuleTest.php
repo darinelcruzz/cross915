@@ -24,4 +24,14 @@ class MembersModuleTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Crear miembro');
     }
+
+    /** @test */
+    function edits_a_member()
+    {
+        $member = factory(\App\Member::class)->create();
+
+        $this->get(route('members.edit', ['member' => $member->id]))
+            ->assertViewIs('members.edit')
+            ->assertSee('Editar miembro');
+    }
 }

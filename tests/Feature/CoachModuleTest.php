@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CoachModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     function loads_the_list_of_coaches()
     {
@@ -28,7 +30,9 @@ class CoachModuleTest extends TestCase
     /** @test */
     function edits_a_coach()
     {
-        $this->get(route('coaches.edit', ['coach' => '1']))
+        $coach = factory(\App\Coach::class)->create();
+
+        $this->get(route('coaches.edit', ['coach' => $coach->id]))
             ->assertViewIs('coaches.edit')
             ->assertStatus(200)
             ->assertSee('Editar entrenador');

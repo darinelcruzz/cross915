@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class WorkoutModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     function loads_the_list_of_workouts()
     {
@@ -26,7 +28,9 @@ class WorkoutModuleTest extends TestCase
     /** @test */
     function edits_a_workout()
     {
-        $this->get(route('workouts.edit', ['workout' => '1']))
+        $workout = factory(\App\Workout::class)->create();
+
+        $this->get(route('workouts.edit', ['workout' => $workout->id]))
             ->assertViewIs('workouts.edit')
             ->assertSee('Editar WOD');
     }

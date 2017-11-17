@@ -28,7 +28,7 @@
                         @foreach ($members as $member)
                             <tr>
                                 <td>{{ $member->id }}</td>
-                                <td><a href="{{ route('members.details', ['id' => $member->id])}}">{{ $member->name }}</a></td>
+                                <td><a href="{{ route('members.show', ['id' => $member->id])}}">{{ $member->name }}</a></td>
                                 <td>
                                     {{ $member->email }} <br>
                                     {{ $member->cellphone }} <br>

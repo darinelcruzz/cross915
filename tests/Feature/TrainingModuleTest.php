@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TrainingModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     function loads_the_trainings_list()
     {
@@ -24,13 +26,4 @@ class TrainingModuleTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Crear clase');
     }
-
-    /* @test 
-    function edits_a_training()
-    {
-        $this->get(route('trainings.edit', ['training' => '1']))
-            ->assertViewIs('trainings.edit')
-            ->assertStatus(200)
-            ->assertSee('Editar clase');
-    }*/
 }

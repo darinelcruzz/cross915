@@ -27,7 +27,7 @@ Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{member}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
-    Route::get('detalles/{member}', usesas($ctrl, 'details'));
+    Route::get('{member}', usesas($ctrl, 'show'));
 });
 
 Route::group(['prefix' => 'entrenadores', 'as' => 'coaches.'], function () {

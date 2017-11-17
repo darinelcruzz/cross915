@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ScheduleModuleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     function loads_the_complete_schedule()
     {
@@ -28,7 +30,9 @@ class ScheduleModuleTest extends TestCase
     /** @test */
     function edits_a_schedule()
     {
-        $this->get(route('schedules.edit', ['schedule' => '1']))
+        $schedule = factory(\App\Schedule::class)->create();
+
+        $this->get(route('schedules.edit', ['schedule' => $schedule->id]))
             ->assertViewIs('schedules.edit')
             ->assertStatus(200)
             ->assertSee('Editar horario');

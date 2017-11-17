@@ -42,9 +42,9 @@ class MemberController extends Controller
         return redirect(route('members.index'));
     }
 
-    function details(Member $member)
+    function show(Member $member)
     {
-        return view('members.details', compact('member'));
+        return view('members.show', compact('member'));
     }
 
     function edit(Member $member)
