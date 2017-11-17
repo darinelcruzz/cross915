@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    Bienvenido, {{ Auth::user()->name }}
+    Bienvenido.
 @endsection
 
 @section('main-content')
