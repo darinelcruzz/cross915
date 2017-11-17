@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->date('birthdate')->nullable();
             $table->string('gender')->nullable();
-            $table->string('bload')->nullable();
+            $table->string('blood')->nullable();
             $table->string('email')->nullable();
             $table->string('cellphone')->nullable();
             $table->integer('membership_id')->nullable();

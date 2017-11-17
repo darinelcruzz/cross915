@@ -42,14 +42,16 @@ class MemberController extends Controller
         return redirect(route('members.index'));
     }
 
-    function show($id)
+    function details(Member $member)
     {
-        //
+        return view('members.details', compact('member'));
     }
 
-    function edit($id)
+    function edit(Member $member)
     {
-        //
+        $memberships = ['Mensual', 'Horas'];
+        $schedules = ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00'];
+        return view('members.edit', compact('member', 'memberships', 'schedules'));
     }
 
     function update(Request $request, $id)

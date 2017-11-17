@@ -8,8 +8,8 @@ use Jenssegers\Date\Date;
 class Member extends Model
 {
     protected $fillable = [
-        'name', 'birthdate', 'gender', 'email', 'membership_id',
-        'registration', 'schedule_id', 'user_id', 'status'
+        'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone',
+        'membership_id', 'registration', 'schedule_id', 'user_id', 'status'
     ];
 
     function getBirthdayAttribute()
