@@ -39,7 +39,7 @@ return [
             ],
             'create' => [
                 'title' => 'Nuevo producto',
-                'route' => 'home'
+                'route' => 'products.create'
             ],
         ]
     ],

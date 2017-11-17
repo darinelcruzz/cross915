@@ -66,3 +66,13 @@ Route::group(['prefix' => 'rutinas', 'as' => 'workouts.'], function () {
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{workout}', usesas($ctrl, 'show'));
 });
+
+Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
+    $ctrl = 'ProductController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{member}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{member}', usesas($ctrl, 'show'));
+});
