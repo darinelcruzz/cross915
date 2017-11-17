@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use App\Http\ViewComposers\WorkoutViews;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerViewComposers();
+        
         Route::resourceVerbs([
             'create' => 'crear',
             'edit' => 'editar',
@@ -31,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('local', 'testing')) {
             $this->app->register(DuskServiceProvider::class);
         }
+    }
+
+    protected function registerViewComposers()
+    {
+       View::composer('workouts.*', WorkoutViews::class);
     }
 }

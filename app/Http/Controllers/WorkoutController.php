@@ -15,26 +15,22 @@ class WorkoutController extends Controller
 
     function create()
     {
-        $instructions = <<<EOD
-
-## Título o encabezado
-
-Formato a las palabras:
-_guiones bajos_, **asteriscos** o `comillas`.
-
-Para hacer listas:
-
-+ Utiliza el símbolo `+`
-* O asteriscos
-- O el signo `-`
-EOD;
-
         return view('workouts.create', compact('instructions'));
     }
 
     function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'duration' => 'required',
+            'difficulty' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+        ]);
 
+        Workout::create($request->all());
+
+        return redirect(route('workouts.index'));
     }
 
     function show(Workout $workout)
@@ -44,25 +40,24 @@ EOD;
 
     function edit(Workout $workout)
     {
-        $instructions = <<<EOD
-
-## Título o encabezado
-
-Formato a las palabras:
-_guiones bajos_, **asteriscos** o `comillas`.
-
-Para hacer listas:
-
-+ Utiliza el símbolo `+`
-* O asteriscos
-- O el signo `-`
-EOD;
         return view('workouts.edit', compact('workout', 'instructions'));
     }
 
-    function update(Request $request, Workout $workout)
+    function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'duration' => 'required',
+            'difficulty' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+        ]);
+
+        $workout = Workout::find($request->id);
+
+        $workout->update($request->except(['id']));
+
+        return redirect(route('workouts.index'));
     }
 
     function destroy(Workout $workout)

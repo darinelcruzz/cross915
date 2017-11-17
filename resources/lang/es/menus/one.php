@@ -84,15 +84,15 @@ return [
         'submenu' => [
             'create' => [
                 'title' => 'Crear',
-                'route' => 'home'
+                'route' => 'workouts.create'
             ],
             'index' => [
                 'title' => 'Listado',
-                'route' => 'home'
+                'route' => 'workouts.index'
             ],
             'results' => [
                 'title' => 'Listado',
-                'route' => 'home'
+                'route' => 'workouts.index'
             ],
         ]
     ],

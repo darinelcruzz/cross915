@@ -38,7 +38,13 @@
                         </div>
                     </div>
 
-                    {!! Field::textarea('description', ['ph' => 'Revisar las instrucciones para dar formato a la descripción']) !!}
+                    {!! Field::textarea('description',
+                        ['tpl' => 'templates/withicon', 'rows' => '5',
+                        'ph' => 'Revisar las instrucciones para dar formato a la descripción'],
+                        ['icon' => 'comments'])
+                    !!}
+
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-danger pull-right']) !!}
 
                 {!! Form::close() !!}
             </solid-box>
