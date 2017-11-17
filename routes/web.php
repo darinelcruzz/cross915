@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('root');
+    return view('home');
 })->name('home');
 
 Route::get('salir', function () {

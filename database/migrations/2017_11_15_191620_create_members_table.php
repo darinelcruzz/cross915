@@ -17,9 +17,11 @@ class CreateMembersTable extends Migration
             $table->increments('id');
 
             $table->string('name');
-            $table->date('birthdate');
-            $table->string('gender');
+            $table->date('birthdate')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('bload')->nullable();
             $table->string('email')->nullable();
+            $table->string('cellphone')->nullable();
             $table->integer('membership_id')->nullable();
             $table->date('registration')->nullable();
             $table->integer('schedule_id')->nullable();

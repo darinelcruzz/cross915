@@ -3,15 +3,13 @@
 return [
 
     'members' => [
-        'title' => 'Simple',
-        'icon' => 'fa fa-user',
-        'route' => 'home'
-    ],
-
-    'members' => [
         'title' => 'Miembros',
-        'icon' => 'fa fa-user-circle-o',
+        'icon' => 'fa fa-id-card-o',
         'submenu' => [
+            'deposits' => [
+                'title' => 'Pago',
+                'route' => 'home'
+            ],
             'index' => [
                 'title' => 'Lista',
                 'route' => 'members.index'
@@ -23,17 +21,93 @@ return [
         ]
     ],
 
-    'schedules' => [
-        'title' => 'Horarios',
+    'store' => [
+        'title' => 'Tienda',
+        'icon' => 'fa fa-shopping-bag',
+        'submenu' => [
+            'sales' => [
+                'title' => 'Venta',
+                'route' => 'home'
+            ],
+            'credit' => [
+                'title' => 'Crédito',
+                'route' => 'home'
+            ],
+            'index' => [
+                'title' => 'Productos',
+                'route' => 'home'
+            ],
+            'create' => [
+                'title' => 'Nuevo producto',
+                'route' => 'home'
+            ],
+        ]
+    ],
+
+    'administration' => [
+        'title' => 'Administración',
+        'icon' => 'fa fa-line-chart',
+        'submenu' => [
+            'balance' => [
+                'title' => 'Caja',
+                'route' => 'home'
+            ],
+            'expenses' => [
+                'title' => 'Gastos',
+                'route' => 'home'
+            ],
+            'memberships' => [
+                'title' => 'Membrecias',
+                'route' => 'home'
+            ],
+        ]
+    ],
+
+    'training' => [
+        'title' => 'Entrenamiento',
         'icon' => 'fa fa-clock-o',
         'submenu' => [
-            'index' => [
-                'title' => 'Lista',
+            'schedules' => [
+                'title' => 'Horario',
                 'route' => 'schedules.index'
             ],
-            'classes' => [
-                'title' => 'Clases',
-                'route' => 'trainings.index'
+            'coachs' => [
+                'title' => 'Entrenadores',
+                'route' => 'home'
+            ]
+        ]
+    ],
+
+    'workouts' => [
+        'title' => 'WODs',
+        'icon' => 'fa fa-bolt',
+        'submenu' => [
+            'create' => [
+                'title' => 'Crear',
+                'route' => 'home'
+            ],
+            'index' => [
+                'title' => 'Listado',
+                'route' => 'home'
+            ],
+            'results' => [
+                'title' => 'Listado',
+                'route' => 'home'
+            ],
+        ]
+    ],
+
+    'users' => [
+        'title' => 'Usuarios',
+        'icon' => 'fa fa-user-circle-o',
+        'submenu' => [
+            'index' => [
+                'title' => 'Listado',
+                'route' => 'home'
+            ],
+            'create' => [
+                'title' => 'Crear',
+                'route' => 'home'
             ],
         ]
     ],
