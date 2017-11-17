@@ -17,7 +17,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                @yield('content-header', "Encabezado")
+                @yield('content-header', 'encabezado' )
             </h1>
         </section>
 
