@@ -45,7 +45,7 @@ Route::group(['prefix' => 'horarios', 'as' => 'schedules.'], function () {
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{schedule}', usesas($ctrl, 'edit'));
-    Route::post('editar/{schedule}', usesas($ctrl, 'update'));
+    Route::post('editar', usesas($ctrl, 'update'));
 });
 
 Route::group(['prefix' => 'clases', 'as' => 'trainings.'], function () {

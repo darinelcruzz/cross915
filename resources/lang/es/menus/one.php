@@ -73,7 +73,7 @@ return [
             ],
             'coachs' => [
                 'title' => 'Entrenadores',
-                'route' => 'home'
+                'route' => 'coaches.index'
             ]
         ]
     ],
@@ -87,10 +87,6 @@ return [
                 'route' => 'workouts.create'
             ],
             'index' => [
-                'title' => 'Listado',
-                'route' => 'workouts.index'
-            ],
-            'results' => [
                 'title' => 'Listado',
                 'route' => 'workouts.index'
             ],

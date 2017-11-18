@@ -25,7 +25,9 @@
                         </div>
                     </div>
 
-                    {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
+                    <hr>
+
+                    {!! Form::submit('Agregar', ['class' => 'btn btn-danger pull-right']) !!}
                 {!! Form::close() !!}
             </simple-box>
         </div>
