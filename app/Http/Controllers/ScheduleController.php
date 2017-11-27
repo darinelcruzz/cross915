@@ -13,7 +13,8 @@ class ScheduleController extends Controller
     function index()
     {
         $schedules = Schedule::all();
-        return view('schedules.index', compact('schedules'));
+        $trainings = Training::all();
+        return view('schedules.index', compact('schedules', 'trainings'));
     }
 
     function create()
@@ -40,7 +41,15 @@ class ScheduleController extends Controller
 
     function update(Request $request)
     {
-        
+
+    }
+
+    function assign(Request $request)
+    {
+        $schedule = Schedule::find($request->id);
+        $schedule->update($request->except(['id']));
+
+        return redirect(route('schedules.index'));
     }
 
     function destroy(Schedule $schedule)

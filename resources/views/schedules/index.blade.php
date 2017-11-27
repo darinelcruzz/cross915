@@ -15,12 +15,12 @@
                 <data-table example="S">
                     <template slot="header">
                         <tr>
-                            <th>Horario</th>
-                            <th>Lunes</th>
-                            <th>Martes</th>
-                            <th>Miércoles</th>
-                            <th>Jueves</th>
-                            <th>Viernes</th>
+                            <th align="center">Horario</th>
+                            <th align="center">Lunes</th>
+                            <th align="center">Martes</th>
+                            <th align="center">Miércoles</th>
+                            <th align="center">Jueves</th>
+                            <th align="center">Viernes</th>
                         </tr>
                     </template>
 
@@ -28,54 +28,44 @@
                         @foreach ($schedules as $schedule)
                             <tr>
                                 <td>{{ $schedule->hour }}</td>
-                                <td>
+                                <td align="center">
                                     @if ($schedule->monday)
-                                        {{ $schedule->monday }}
+                                        <small class="label label-{{ $schedule->mondayc->color }}">{{ $schedule->mondayc->coach->name }}</small><br>
+                                        <small class="label label-{{ $schedule->mondayc->color }}">{{ $schedule->mondayc->workout->name }}</small>
                                     @else
-                                        <a href="{{ route('schedules.edit', ['schedule' => $schedule->id, 'weekday' => 1]) }}"
-                                            class="btn btn-xs btn-danger" title="AGREGAR CLASE">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
+                                        @include('schedules/assign', ['name' => 'monday'])
                                     @endif
                                 </td>
-                                <td>
+                                <td align="center">
                                     @if ($schedule->tuesday)
-                                        {{ $schedule->tuesday }}
+                                        <small class="label label-{{ $schedule->tuesdayc->color }}">{{ $schedule->tuesdayc->coach->name }}</small><br>
+                                        <small class="label label-{{ $schedule->tuesdayc->color }}">{{ $schedule->tuesdayc->workout->name }}</small>
                                     @else
-                                        <a href="{{ route('schedules.edit', ['schedule' => $schedule->id, 'weekday' => 2]) }}"
-                                            class="btn btn-xs btn-danger" title="AGREGAR CLASE">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
+                                        @include('schedules/assign', ['name' => 'tuesday'])
                                     @endif
                                 </td>
-                                <td>
+                                <td align="center">
                                     @if ($schedule->wednesday)
-                                        {{ $schedule->wednesday }}
+                                        <small class="label label-{{ $schedule->wednesdayc->color }}">{{ $schedule->wednesdayc->coach->name }}</small><br>
+                                        <small class="label label-{{ $schedule->wednesdayc->color }}">{{ $schedule->wednesdayc->workout->name }}</small>
                                     @else
-                                        <a href="{{ route('schedules.edit', ['schedule' => $schedule->id, 'weekday' => 3]) }}"
-                                            class="btn btn-xs btn-danger" title="AGREGAR CLASE">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
+                                        @include('schedules/assign', ['name' => 'wednesday'])
                                     @endif
                                 </td>
-                                <td>
+                                <td align="center">
                                     @if ($schedule->thursday)
-                                        {{ $schedule->thursday }}
+                                        <small class="label label-{{ $schedule->thursdayc->color }}">{{ $schedule->thursdayc->coach->name }}</small><br>
+                                        <small class="label label-{{ $schedule->thursdayc->color }}">{{ $schedule->thursdayc->workout->name }}</small>
                                     @else
-                                        <a href="{{ route('schedules.edit', ['schedule' => $schedule->id, 'weekday' => 4]) }}"
-                                            class="btn btn-xs btn-danger" title="AGREGAR CLASE">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
+                                        @include('schedules/assign', ['name' => 'thursday'])
                                     @endif
                                 </td>
-                                <td>
+                                <td align="center">
                                     @if ($schedule->friday)
-                                        {{ $schedule->friday }}
+                                        <small class="label label-{{ $schedule->fridayc->color }}">{{ $schedule->fridayc->coach->name }}</small><br>
+                                        <small class="label label-{{ $schedule->fridayc->color }}">{{ $schedule->fridayc->workout->name }}</small>
                                     @else
-                                        <a href="{{ route('schedules.edit', ['schedule' => $schedule->id, 'weekday' => 5]) }}"
-                                            class="btn btn-xs btn-danger" title="AGREGAR CLASE">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
+                                        @include('schedules/assign', ['name' => 'friday'])
                                     @endif
                                 </td>
                             </tr>

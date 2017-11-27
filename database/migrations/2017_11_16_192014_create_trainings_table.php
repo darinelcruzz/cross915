@@ -18,6 +18,7 @@ class CreateTrainingsTable extends Migration
 
             $table->integer('coach_id');
             $table->integer('workout_id');
+            $table->string('color');
 
             $table->timestamps();
         });

@@ -71,6 +71,10 @@ return [
                 'title' => 'Horario',
                 'route' => 'schedules.index'
             ],
+            'classes' => [
+                'title' => 'Clases',
+                'route' => 'trainings.index'
+            ],
             'coachs' => [
                 'title' => 'Entrenadores',
                 'route' => 'coaches.index'

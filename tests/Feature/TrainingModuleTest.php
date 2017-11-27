@@ -14,7 +14,6 @@ class TrainingModuleTest extends TestCase
     {
         $this->get(route('trainings.index'))
             ->assertViewIs('trainings.index')
-            ->assertStatus(200)
             ->assertSee('Clases');
     }
 
@@ -23,7 +22,20 @@ class TrainingModuleTest extends TestCase
     {
         $this->get(route('trainings.create'))
             ->assertViewIs('trainings.create')
-            ->assertStatus(200)
             ->assertSee('Crear clase');
+    }
+
+    /** @test */
+    function edits_a_training()
+    {
+        $training = \App\Training::create([
+            'coach_id' => 1,
+            'workout_id' => 1,
+            'color' => 'danger'
+        ]);
+
+        $this->get(route('trainings.edit', ['training' => $training->id]))
+            ->assertViewIs('trainings.edit')
+            ->assertSee('Editar clase');
     }
 }
