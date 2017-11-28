@@ -29,44 +29,19 @@
                             <tr>
                                 <td>{{ $schedule->hour }}</td>
                                 <td align="center">
-                                    @if ($schedule->monday)
-                                        <small class="label label-{{ $schedule->mondayc->color }}">{{ $schedule->mondayc->coach->name }}</small><br>
-                                        <small class="label label-{{ $schedule->mondayc->color }}">{{ $schedule->mondayc->workout->name }}</small>
-                                    @else
-                                        @include('schedules/assign', ['name' => 'monday'])
-                                    @endif
+                                    @include('schedules/classcell', ['weekday' => 'monday'])
                                 </td>
                                 <td align="center">
-                                    @if ($schedule->tuesday)
-                                        <small class="label label-{{ $schedule->tuesdayc->color }}">{{ $schedule->tuesdayc->coach->name }}</small><br>
-                                        <small class="label label-{{ $schedule->tuesdayc->color }}">{{ $schedule->tuesdayc->workout->name }}</small>
-                                    @else
-                                        @include('schedules/assign', ['name' => 'tuesday'])
-                                    @endif
+                                    @include('schedules/classcell', ['weekday' => 'tuesday'])
                                 </td>
                                 <td align="center">
-                                    @if ($schedule->wednesday)
-                                        <small class="label label-{{ $schedule->wednesdayc->color }}">{{ $schedule->wednesdayc->coach->name }}</small><br>
-                                        <small class="label label-{{ $schedule->wednesdayc->color }}">{{ $schedule->wednesdayc->workout->name }}</small>
-                                    @else
-                                        @include('schedules/assign', ['name' => 'wednesday'])
-                                    @endif
+                                    @include('schedules/classcell', ['weekday' => 'wednesday'])
                                 </td>
                                 <td align="center">
-                                    @if ($schedule->thursday)
-                                        <small class="label label-{{ $schedule->thursdayc->color }}">{{ $schedule->thursdayc->coach->name }}</small><br>
-                                        <small class="label label-{{ $schedule->thursdayc->color }}">{{ $schedule->thursdayc->workout->name }}</small>
-                                    @else
-                                        @include('schedules/assign', ['name' => 'thursday'])
-                                    @endif
+                                    @include('schedules/classcell', ['weekday' => 'thursday'])
                                 </td>
                                 <td align="center">
-                                    @if ($schedule->friday)
-                                        <small class="label label-{{ $schedule->fridayc->color }}">{{ $schedule->fridayc->coach->name }}</small><br>
-                                        <small class="label label-{{ $schedule->fridayc->color }}">{{ $schedule->fridayc->workout->name }}</small>
-                                    @else
-                                        @include('schedules/assign', ['name' => 'friday'])
-                                    @endif
+                                    @include('schedules/classcell', ['weekday' => 'friday'])
                                 </td>
                             </tr>
                         @endforeach

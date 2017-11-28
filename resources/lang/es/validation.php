@@ -153,6 +153,8 @@ return [
         'membership_id'         => 'membresía',
         'schedule_id'           => 'horario',
         'birthdate'             => 'fecha de nacimiento',
+        'blood'                 => 'sangre',
+        'cellphone'             => 'celular',
     ],
 
 ];
