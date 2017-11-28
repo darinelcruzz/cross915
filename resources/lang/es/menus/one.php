@@ -35,7 +35,7 @@ return [
             ],
             'index' => [
                 'title' => 'Productos',
-                'route' => 'home'
+                'route' => 'products.index'
             ],
             'create' => [
                 'title' => 'Nuevo producto',

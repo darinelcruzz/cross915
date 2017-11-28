@@ -153,6 +153,10 @@ return [
         'membership_id'         => 'membresía',
         'schedule_id'           => 'horario',
         'birthdate'             => 'fecha de nacimiento',
+        'code'                  =>  'código',
+        'provider'              => 'proveedor',
+        'family'                => 'familia',
+        
     ],
 
 ];
