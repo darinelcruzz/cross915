@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Schedule::class, function (Faker $faker) {
     return [
-        'hour' => $faker->time('H') . ":00",
+        'hour' => 0,
         'members' => 0,
         'monday' => 0,
         'tuesday' => 0,

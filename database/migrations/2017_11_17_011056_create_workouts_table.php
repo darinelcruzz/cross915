@@ -17,6 +17,9 @@ class CreateWorkoutsTable extends Migration
             $table->increments('id');
 
             $table->string('name');
+            $table->integer('priority');
+            $table->date('date');
+            $table->integer('week')->nullable();
             $table->string('description', 800);
             $table->double('duration')->default(0);
             $table->integer('difficulty')->default(1);

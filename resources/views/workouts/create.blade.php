@@ -37,6 +37,17 @@
                             !!}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::date('date',['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::select('priority',
+                                ['Principal', 'Extra', 'Extra2'], null,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione dificultad'], ['icon' => 'plus'])
+                            !!}
+                        </div>
+                    </div>
 
                     {!! Field::textarea('description',
                         ['tpl' => 'templates/withicon', 'rows' => '5',

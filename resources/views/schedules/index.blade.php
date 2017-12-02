@@ -29,19 +29,19 @@
                             <tr>
                                 <td>{{ $schedule->hour }}</td>
                                 <td align="center">
-                                    @include('schedules/classcell', ['weekday' => 'monday'])
+                                    @include('schedules/classcell', ['weekday' => 'monday', 'fase' => 0])
                                 </td>
                                 <td align="center">
-                                    @include('schedules/classcell', ['weekday' => 'tuesday'])
+                                    @include('schedules/classcell', ['weekday' => 'tuesday', 'fase' => 18])
                                 </td>
                                 <td align="center">
-                                    @include('schedules/classcell', ['weekday' => 'wednesday'])
+                                    @include('schedules/classcell', ['weekday' => 'wednesday', 'fase' => 36])
                                 </td>
                                 <td align="center">
-                                    @include('schedules/classcell', ['weekday' => 'thursday'])
+                                    @include('schedules/classcell', ['weekday' => 'thursday', 'fase' => 54])
                                 </td>
                                 <td align="center">
-                                    @include('schedules/classcell', ['weekday' => 'friday'])
+                                    @include('schedules/classcell', ['weekday' => 'friday', 'fase' => 72])
                                 </td>
                             </tr>
                         @endforeach

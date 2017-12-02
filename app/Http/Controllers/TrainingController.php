@@ -50,14 +50,14 @@ class TrainingController extends Controller
     {
         $this->validate($request, [
             'coach_id' => 'required',
-            'workout_id' => 'required'
+            'color' => 'required'
         ]);
 
         $training = Training::find($request->id);
 
-        $training->update($request->only(['coach_id', 'workout_id']));
+        $training->update($request->only(['coach_id', 'color']));
 
-        return redirect(route('trainings.index'));
+        return redirect(route('schedules.index'));
     }
 
     public function destroy(Training $training)

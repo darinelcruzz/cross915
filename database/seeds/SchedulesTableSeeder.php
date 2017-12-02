@@ -11,6 +11,17 @@ class SchedulesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Schedule::class, 10)->create();
+        for ($i=1; $i < 19; $i++) {
+            factory(App\Schedule::class)->create([
+                'hour' => $i + 5 . ":00",
+                'monday' => $i,
+                'tuesday' => $i + 18,
+                'wednesday' => $i + 36,
+                'thursday' => $i + 54,
+                'friday' => $i + 72,
+                //'saturday' => $i + 90,
+                //'sunday' => $i + 108,
+            ]);
+        }
     }
 }

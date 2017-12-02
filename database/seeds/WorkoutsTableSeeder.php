@@ -11,6 +11,11 @@ class WorkoutsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Workout::class, 5)->create();
+        for ($i=4; $i < 9; $i++) {
+            factory(App\Workout::class)->create([
+                'date' => '2017-12-0' . $i,
+            ]);
+        }
+
     }
 }

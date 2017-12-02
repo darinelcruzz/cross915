@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Training extends Model
 {
-    protected $fillable = ['coach_id', 'workout_id', 'color'];
+    protected $fillable = ['coach_id', 'workout_id', 'color', 'extra1', 'extra2', 'weekday'];
 
     function coach()
     {
@@ -16,5 +16,15 @@ class Training extends Model
     function workout()
     {
         return $this->belongsTo(Workout::class);
+    }
+
+    function extra1()
+    {
+        return $this->belongsTo(Workout::class, 'extra1');
+    }
+
+    function extra2()
+    {
+        return $this->belongsTo(Workout::class, 'extra2');
     }
 }

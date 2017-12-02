@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Workout extends Model
 {
     protected $fillable = [
-        'name', 'description', 'duration', 'difficulty', 'type'
+        'name', 'description', 'duration', 'difficulty', 'type', 'date', 'priority', 'week',
     ];
 
     function getBombsAttribute()

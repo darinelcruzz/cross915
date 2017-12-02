@@ -26,9 +26,14 @@ class WorkoutController extends Controller
             'difficulty' => 'required',
             'description' => 'required',
             'type' => 'required',
+            'date' => 'required',
+            'priority' => 'required',
         ]);
 
-        Workout::create($request->all());
+        $workout = Workout::create($request->all());
+        $workout->update([
+            'week' => date('W', strtotime($workout->date))
+        ]);
 
         return redirect(route('workouts.index'));
     }
@@ -51,6 +56,8 @@ class WorkoutController extends Controller
             'difficulty' => 'required',
             'description' => 'required',
             'type' => 'required',
+            'date' => 'required',
+            'priority' => 'required',
         ]);
 
         $workout = Workout::find($request->id);
