@@ -157,7 +157,14 @@ return [
         'provider'              => 'proveedor',
         'family'                => 'familia',
         'blood'                 => 'sangre',
-        'cellphone'             => 'celular',        
+        'cellphone'             => 'celular',
+        'xsmall'                => 'XS',
+        'small'                 => 'S',
+        'medium'                => 'M',
+        'large'                 => 'L',
+        'xlarge'                => 'XL',
+        'public'                => 'precio público',
+        'price'                => 'precio compra',        
     ],
 
 ];

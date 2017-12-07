@@ -25147,7 +25147,32 @@ Vue.component('modal', __webpack_require__(89));
 Vue.component('modal-button', __webpack_require__(90));
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    sizes: 0,
+    image: ''
+  },
+  methods: {
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.createImage(files[0]);
+    },
+    createImage: function createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = function (e) {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+
+    removeImage: function removeImage(e) {
+      this.image = '';
+    }
+  }
 });
 
 /***/ }),

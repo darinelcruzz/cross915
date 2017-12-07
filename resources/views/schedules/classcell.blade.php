@@ -9,7 +9,7 @@
         <i class="fa fa-pencil"></i>
     </modal-button>
 
-    <modal id="{{ $weekday }}{{ $loop->iteration }}" title="Cambiar la clase">
+    <modal id="{{ $weekday }}{{ $loop->iteration }}" title="Asignar entrenador/color">
         @include('schedules/assign', ['name' => $weekday])
     </modal>
 @else

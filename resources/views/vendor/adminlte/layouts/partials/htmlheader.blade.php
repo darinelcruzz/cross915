@@ -20,6 +20,26 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    </style>
+
     <script>
         //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
         window.trans = @php

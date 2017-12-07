@@ -18,10 +18,13 @@
                             <th>ID</th>
                             <th>Imagen</th>
                             <th>Producto</th>
-                            <th>S</th>
-                            <th>M</th>
-                            <th>L</th>
-                            <th></th>
+                            <th>
+                                <span class="label label-info">XS</span>
+                                <span class="label label-primary">S</span>
+                                <span class="label label-success">M</span>
+                                <span class="label label-warning">L</span>
+                                <span class="label label-danger">XL</span>
+                            </th>
                         </tr>
                     </template>
 
@@ -29,15 +32,34 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>
-                                <td><img src="{{ $product->img }}" alt="{{ $product->description }}" width="50px"></td>
+                                <td align="center">
+                                    <modal-button target="image{{ $product->id }}">
+                                        <img src="{{ $product->img }}" alt="{{ $product->description }}" height="60px">
+                                    </modal-button>
+                                    <modal id="image{{ $product->id }}" title="{{ $product->description }}">
+                                        <img src="{{ $product->img }}" alt="{{ $product->description }}" width="80%">
+                                        <hr>
+                                        <span class="pull-left">Precio público: {{ $product->public }}</span>
+                                        <span class="pull-right">Precio compra: {{ $product->price }}</span>
+                                    </modal>
+                                </td>
                                 <td>
                                     {{ $product->description }} <br>
                                     <i class="fa fa-barcode" aria-hidden="true"></i> {{ $product->code }}
                                 </td>
-                                <td>{{ $product->small }}</td>
-                                <td>{{ $product->medium }}</td>
-                                <td>{{ $product->large }}</td>
-                                <td></td>
+                                @if ($product->unisize)
+                                    <td>
+                                        <span class="label label-default">{{ $product->unisize }}</span>
+                                    </td>
+                                @else
+                                    <td>
+                                        <span class="label label-info">{{ $product->xsmall }}</span>
+                                        <span class="label label-primary">{{ $product->small }}</span>
+                                        <span class="label label-success">{{ $product->medium }}</span>
+                                        <span class="label label-warning">{{ $product->large }}</span>
+                                        <span class="label label-danger">{{ $product->xlarge }}</span>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </template>
