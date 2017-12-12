@@ -66,23 +66,23 @@
                         <div v-else class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    {!! Field::number('xsmall', ['tpl' => 'templates/withtext'], ['text' => 'XS']) !!}
+                                    {!! Field::number('xsmall', 0, ['tpl' => 'templates/withtext'], ['text' => 'XS']) !!}
                                 </div>
                                 <div class="col-md-6">
-                                    {!! Field::number('small', ['tpl' => 'templates/withtext'], ['text' => 'S']) !!}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {!! Field::number('medium', ['tpl' => 'templates/withtext'], ['text' => 'M ']) !!}
-                                </div>
-                                <div class="col-md-6">
-                                    {!! Field::number('large', ['tpl' => 'templates/withtext'], ['text' => 'L']) !!}
+                                    {!! Field::number('small', 0, ['tpl' => 'templates/withtext'], ['text' => 'S']) !!}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    {!! Field::number('xlarge', ['tpl' => 'templates/withtext'], ['text' => 'XL']) !!}
+                                    {!! Field::number('medium', 0, ['tpl' => 'templates/withtext'], ['text' => 'M ']) !!}
+                                </div>
+                                <div class="col-md-6">
+                                    {!! Field::number('large', 0, ['tpl' => 'templates/withtext'], ['text' => 'L']) !!}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {!! Field::number('xlarge', 0, ['tpl' => 'templates/withtext'], ['text' => 'XL']) !!}
                                 </div>
                             </div>
                         </div>

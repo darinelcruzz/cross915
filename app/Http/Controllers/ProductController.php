@@ -37,14 +37,16 @@ class ProductController extends Controller
 
         $product = Product::create($request->except(['img', 'sizes']));
 
-        $file = $request->img;
-        $filename = $request->code;
-        $ext = $file->extension();
-        $file->storeAs('public/products', "$filename.$ext");
+        if($request->img) {
+            $file = $request->img;
+            $filename = $request->code;
+            $ext = $file->extension();
+            $file->storeAs('public/products', "$filename.$ext");
 
-        $product->update([
-            'img' => Storage::url("products/$filename.$ext")
-        ]);
+            $product->update([
+                'img' => "$filename.$ext"
+            ]);
+        }
 
         return redirect(route('products.index'));
     }
@@ -68,7 +70,20 @@ class ProductController extends Controller
             'price' => 'required',
         ]);
 
-        Product::find($request->id)->update($request->all());
+        $product = Product::find($request->id);
+        $product->update($request->except(['img', 'sizes']));
+
+        if($request->img) {
+            Storage::delete("products/" . $product->img);
+            $file = $request->img;
+            $filename = $request->code;
+            $ext = $file->extension();
+            $file->storeAs('public/products', "$filename.$ext");
+
+            $product->update([
+                'img' => "$filename.$ext"
+            ]);
+        }
 
         return redirect(route('products.index'));
     }

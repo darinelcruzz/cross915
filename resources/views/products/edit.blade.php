@@ -42,16 +42,19 @@
                         <div class="col-md-6">
                             {!! Field::text('provider', $product->provider,['tpl' => 'templates/withicon'], ['icon' => 'truck']) !!}
                         </div>
-                        <!--div class="col-md-6" align="center">
+                        <div class="col-md-6" align="center">
                             <br>
                             <div class="fileUpload btn btn-danger">
-                                <span><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Subir imagen</span>
+                                <span><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Actualizar imagen</span>
                                 <input type="file" id="img" name="img" class="upload" @change="onFileChange" />
                             </div>
                             <div v-if="image" align="center">
-                                <img :src="img" width="200px"/>
+                                <img :src="image" width="200px"/>
                             </div>
-                        </div-->
+                            <div v-else align="center">
+                                <img src="{{ $product->img_url }}" alt="{{ $product->description }}" height="200px">
+                            </div>
+                        </div>
                     </div>
 
                     <hr>

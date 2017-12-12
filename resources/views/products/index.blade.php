@@ -39,10 +39,10 @@
                                 <td>{{ $product->id }}</td>
                                 <td align="center">
                                     <modal-button target="image{{ $product->id }}">
-                                        <img src="{{ $product->img }}" alt="{{ $product->description }}" height="60px">
+                                        <img src="{{ $product->img_url }}" alt="{{ $product->description }}" height="60px">
                                     </modal-button>
                                     <modal id="image{{ $product->id }}" title="{{ $product->description }}">
-                                        <img src="{{ $product->img }}" alt="{{ $product->description }}" width="80%">
+                                        <img src="{{ $product->img_url }}" alt="{{ $product->description }}" width="80%">
                                         <hr>
                                         <span class="pull-left"><b>Precio público:</b> ${{ $product->public }}</span>
                                         <span class="pull-right"><b>Proveedor:</b> {{ $product->provider }}</span><br>
