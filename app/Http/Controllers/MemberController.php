@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Jenssegers\Date\Date;
 use App\User;
 use App\Member;
 
@@ -17,9 +18,11 @@ class MemberController extends Controller
 
     function create()
     {
+        $date = Date::now()->format('Y-m-d');
         $memberships = ['Mensual', 'Horas'];
-        $schedules = ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00'];
-        return view('members.create', compact('memberships', 'schedules'));
+        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00', '17:00' => '17:00',
+            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00'];
+        return view('members.create', compact('memberships', 'schedules', 'date'));
     }
 
     function store(Request $request)
@@ -51,7 +54,8 @@ class MemberController extends Controller
     function edit(Member $member)
     {
         $memberships = ['Mensual', 'Horas'];
-        $schedules = ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00'];
+        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00', '17:00' => '17:00',
+            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00'];
         return view('members.edit', compact('member', 'memberships', 'schedules'));
     }
 

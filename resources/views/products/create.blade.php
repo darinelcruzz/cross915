@@ -10,8 +10,8 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-7">
-            <solid-box title="Agregar datos" color="danger">
+        <div class="col-md-8 col-md-offset-2">
+            <simple-box title="Agregar datos" color="danger">
                 {!! Form::open(['method' => 'POST', 'route' => 'products.store', 'enctype' => 'multipart/form-data']) !!}
                     {!! Field::text('description', ['tpl' => 'templates/withicon'], ['icon' => 'tag']) !!}
                     <div class="row">
@@ -28,11 +28,11 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            {!! Field::number('public', ['tpl' => 'templates/withicon'], ['icon' => 'dollar']) !!}
+                            {!! Field::number('price', ['tpl' => 'templates/withicon'], ['icon' => 'money']) !!}
                         </div>
 
                         <div class="col-md-6">
-                            {!! Field::number('price', ['tpl' => 'templates/withicon'], ['icon' => 'money']) !!}
+                            {!! Field::number('public', ['tpl' => 'templates/withicon'], ['icon' => 'dollar']) !!}
                         </div>
                     </div>
 
@@ -88,11 +88,8 @@
                         </div>
                     </div>
 
-                    <br><hr>
-
-                    <button type="submit" class="btn btn-danger pull-right">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;AGREGAR
-                    </button>
+                    <hr>
+                    {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
 
                 {!! Form::close() !!}
             </solid-box>

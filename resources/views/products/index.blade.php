@@ -10,7 +10,12 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2 col-md-push-10"  align="center">
+            <a href="{{ route('products.create') }}" class="btn btn-app">
+                <i class="fa fa-plus"></i> Agregar producto
+            </a>
+        </div>
+        <div class="col-md-10 col-md-pull-2">
             <solid-box color="danger" title="Lista de productos">
                 <data-table example="1">
                     <template slot="header">
@@ -39,13 +44,15 @@
                                     <modal id="image{{ $product->id }}" title="{{ $product->description }}">
                                         <img src="{{ $product->img }}" alt="{{ $product->description }}" width="80%">
                                         <hr>
-                                        <span class="pull-left">Precio público: {{ $product->public }}</span>
-                                        <span class="pull-right">Precio compra: {{ $product->price }}</span>
+                                        <span class="pull-left"><b>Precio público:</b> ${{ $product->public }}</span>
+                                        <span class="pull-right"><b>Proveedor:</b> {{ $product->provider }}</span><br>
+                                        <span class="pull-left"><b>Precio compra:</b> ${{ $product->price }}</span>
                                     </modal>
                                 </td>
                                 <td>
                                     {{ $product->description }} <br>
-                                    <i class="fa fa-barcode" aria-hidden="true"></i> {{ $product->code }}
+                                    <i class="fa fa-barcode" aria-hidden="true"></i> {{ $product->code }} <br>
+                                    <i class="fa fa-tags" aria-hidden="true"></i> {{ $product->family }}
                                 </td>
                                 @if ($product->unisize)
                                     <td>
@@ -60,11 +67,17 @@
                                         <span class="label label-danger">{{ $product->xlarge }}</span>
                                     </td>
                                 @endif
+                                <td>
+                                    <a href="{{ route('products.edit', ['product' => $product->id])}}">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </template>
                 </data-table>
             </solid-box>
         </div>
+
     </div>
 @endsection

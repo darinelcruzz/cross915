@@ -9,7 +9,7 @@ class Member extends Model
 {
     protected $fillable = [
         'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone',
-        'membership_id', 'registration', 'schedule_id', 'user_id', 'status'
+        'membership_id', 'registration', 'schedule_id', 'user_id', 'status', 'ingress'
     ];
 
     function getBirthdayAttribute()
@@ -20,7 +20,7 @@ class Member extends Model
 
     function getInscriptionAttribute()
     {
-        $registration = new Date(strtotime($this->registration));
-        return $registration->format('j \d\e F, Y');
+        $ingress = new Date(strtotime($this->ingress));
+        return $ingress->format('j \d\e F, Y');
     }
 }

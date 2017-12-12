@@ -24,12 +24,15 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'description' => 'required',
+            'code' => 'required|unique:products',
             'unisize' => 'sometimes|required',
             'xsmall' => 'sometimes|required',
             'small' => 'sometimes|required',
             'medium' => 'sometimes|required',
             'large' => 'sometimes|required',
             'xlarge' => 'sometimes|required',
+            'public' => 'required',
+            'price' => 'required',
         ]);
 
         $product = Product::create($request->except(['img', 'sizes']));
@@ -43,7 +46,6 @@ class ProductController extends Controller
             'img' => Storage::url("products/$filename.$ext")
         ]);
 
-
         return redirect(route('products.index'));
     }
 
@@ -54,12 +56,21 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required',
+            'code' => 'required',
+            'public' => 'required',
+            'price' => 'required',
+        ]);
+
+        Product::find($request->id)->update($request->all());
+
+        return redirect(route('products.index'));
     }
 
     public function destroy(Product $product)

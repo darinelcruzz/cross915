@@ -39,9 +39,9 @@
                                     <i class="fa fa-tint"></i>&nbsp;&nbsp;&nbsp;{{ $member->blood }}
                                 </td>
                                 <td>
-                                    {{ $member->membership == 1 ? 'Estudiante' : 'Mensual' }} <br>
+                                    {{ $member->membership_id == 1 ? 'Estudiante' : 'Mensual' }} <br>
                                     <b>Último pago:</b> {{ $member->date }} <br>
-                                    <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->schendule }} <br>
+                                    <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->schedule_id }} <br>
                                 </td>
                                 <td>
                                     <a href="{{ route('members.edit', ['member' => $member->id])}}">

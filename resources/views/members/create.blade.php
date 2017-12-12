@@ -31,18 +31,31 @@
                                 ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-6  col-md-offset-3">
+                        <div class="col-md-6 col-md-offset-3">
                             {!! Field::select('blood',
                                     ['A+' => 'A+', 'A-' => 'A-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'B+' => 'B+',
                                     'B-' => 'B-', 'O+' => 'O+', 'O-' => 'O-'], null,
                                     ['empty' => 'Seleccione el tipo de sangre', 'tpl' => 'templates/withicon'], ['icon' => 'tint'])!!}
                         </div>
                     </div>
-                    {!! Field::select('membership_id', $memberships, null,
-                        ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'credit-card']) !!}
-                    {!! Field::select('schedule_id', $schedules, null,
-                        ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un horario'], ['icon' => 'clock-o']) !!}
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::select('membership_id', $memberships, null,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'credit-card']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::select('schedule_id', $schedules, null,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un horario'], ['icon' => 'clock-o']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6  col-md-offset-3">
+                            {!! Field::date('ingress', $date,['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
+                        </div>
+                    </div>
 
                     {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
                 {!! Form::close() !!}

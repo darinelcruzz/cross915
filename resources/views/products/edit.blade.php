@@ -1,55 +1,66 @@
 @extends('root')
 
 @section('htmlheader_title')
-    - Editar miembro
+    - Editar producto
 @endsection
 
 @section('content-header')
-    Editar miembro
+    Editar producto
 @endsection
 
 @section('main-content')
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <simple-box title="Agregar datos" color="danger">
-                {!! Form::open(['method' => 'POST', 'route' => 'members.update']) !!}
-                    {!! Field::text('name', $member->name, ['tpl' => 'templates/withicon'], ['icon' => 'id-card-o']) !!}
-                    <div class="row">
-                        <div class="col-md-6">
-                            {!! Field::email('email', $member->email, ['tpl' => 'templates/withicon'], ['icon' => 'at']) !!}
-                        </div>
-                        <div class="col-md-6">
-                            {!! Field::text('cellphone', $member->cellphone, ['tpl' => 'templates/withicon'], ['icon' => 'mobile']) !!}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            {!! Field::date('birthdate', $member->birthdate, ['tpl' => 'templates/withicon'], ['icon' => 'birthday-cake']) !!}
-                        </div>
-                        <div class="col-md-6">
-                            {!! Field::select('gender', ['M' => 'Masculino', 'F' => 'Femenino'], $member->gender,
-                                ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6  col-md-offset-3">
-                            {!! Field::select('blood',
-                                    ['A+' => 'A+', 'A-' => 'A-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'B+' => 'B+',
-                                    'B-' => 'B-', 'O+' => 'O+', 'O-' => 'O-'], $member->blood,
-                                    ['empty' => 'Seleccione el tipo de sangre', 'tpl' => 'templates/withicon'], ['icon' => 'tint'])!!}
-                        </div>
-                    </div>
-                    {!! Field::select('membership_id', $memberships, $member->memberships,
-                        ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'credit-card']) !!}
-                    {!! Field::select('schedule_id', $schedules, $member->schendules,
-                        ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un horario'], ['icon' => 'clock-o']) !!}
+            <simple-box title="Editar {{ $product->description }}" color="danger">
+                {!! Form::open(['method' => 'POST', 'route' => 'products.update', 'enctype' => 'multipart/form-data']) !!}
 
-                    <div class="box-footer">
-                        <input type="hidden" name="id" value="{{ $member->id }}">
-                        {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
+                    {!! Field::text('description', $product->description,['tpl' => 'templates/withicon'], ['icon' => 'tag']) !!}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::text('code', $product->code,['tpl' => 'templates/withicon'], ['icon' => 'barcode']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::select('family',
+                                ['blusa' => 'Blusa', 'legging' => 'Legging', 'playera' => 'Playera', 'pants' => 'Pants',
+                                'short' => 'Short', 'top' => 'Top', 'accesorio' => 'Accesorio', 'otros' => 'Otros'], $product->family,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione la familia'], ['icon' => 'tags']) !!}
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::number('price', $product->price,['tpl' => 'templates/withicon'], ['icon' => 'money']) !!}
+                        </div>
+
+                        <div class="col-md-6">
+                            {!! Field::number('public', $product->public,['tpl' => 'templates/withicon'], ['icon' => 'dollar']) !!}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::text('provider', $product->provider,['tpl' => 'templates/withicon'], ['icon' => 'truck']) !!}
+                        </div>
+                        <!--div class="col-md-6" align="center">
+                            <br>
+                            <div class="fileUpload btn btn-danger">
+                                <span><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Subir imagen</span>
+                                <input type="file" id="img" name="img" class="upload" @change="onFileChange" />
+                            </div>
+                            <div v-if="image" align="center">
+                                <img :src="img" width="200px"/>
+                            </div>
+                        </div-->
+                    </div>
+
+                    <hr>
+                    <input type="hidden" name="id" value="{{ $product->id }}">
+                    {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
+
+
                 {!! Form::close() !!}
-            </simple-box>
+            </solid-box>
         </div>
     </div>
 @endsection

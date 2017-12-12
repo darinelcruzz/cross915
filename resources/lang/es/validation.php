@@ -164,7 +164,8 @@ return [
         'large'                 => 'L',
         'xlarge'                => 'XL',
         'public'                => 'precio público',
-        'price'                => 'precio compra',        
+        'price'                 => 'precio compra',
+        'ingress'               => 'ingreso',      
     ],
 
 ];
