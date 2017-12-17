@@ -57,8 +57,8 @@ return [
                 'route' => 'expenses.create'
             ],
             'memberships' => [
-                'title' => 'Membrecias',
-                'route' => 'home'
+                'title' => 'Membresias',
+                'route' => 'memberships.index'
             ],
         ]
     ],
@@ -110,6 +110,12 @@ return [
                 'route' => 'home'
             ],
         ]
+    ],
+
+    'attendence' => [
+        'title' => 'Asistencia',
+        'icon' => 'fa fa-check-square-o',
+        'route' => 'attendences.create'
     ],
 
     'logout' => [

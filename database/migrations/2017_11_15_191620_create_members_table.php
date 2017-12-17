@@ -24,8 +24,8 @@ class CreateMembersTable extends Migration
             $table->string('cellphone')->nullable();
             $table->integer('membership_id')->nullable();
             $table->string('schedule_id')->nullable();
-            $table->integer('status')->default(1);
             $table->date('ingress')->nullable();
+            $table->integer('status')->default(1);
 
             $table->timestamps();
         });

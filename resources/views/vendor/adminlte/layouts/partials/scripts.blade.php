@@ -11,6 +11,18 @@
 <script>
     $(function () {
         $('#example1').DataTable()
+        $('#example2').DataTable()
+        $('#exampleDesc').DataTable({
+            "order"     : [[0, "desc"]]
+        })
+        $('#exampleSearch').DataTable({
+          'paging'      : false,
+          'lengthChange': false,
+          'searching'   : true,
+          'ordering'    : true,
+          'info'        : true,
+          'autoWidth'   : false
+        })
         $('#exampleS').DataTable({
           'paging'      : false,
           'lengthChange': false,

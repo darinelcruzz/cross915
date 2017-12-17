@@ -18,8 +18,7 @@
                     {!! Form::open(['method' => 'POST', 'route' => 'attendences.store']) !!}
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Field::select('member_id',
-                                    ['1' => 'David - 001', '2' => 'Juan - 002', '3' => 'Pedro - 003', '4' => 'Pablo - 004'], null,
+                                {!! Field::select('member_id', $members, null,
                                     ['empty' => 'Nombre / # de miembro', 'tpl' => 'templates/withicon'], ['icon' => 'user'])
                                 !!}
                             </div>

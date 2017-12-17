@@ -1,7 +1,7 @@
 @extends('root')
 
 @section('htmlheader_title')
-    - Caja
+    - Asistencia
 @endsection
 
 @section('content-header')
@@ -25,18 +25,26 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-8 col-md-12">
-			<simple-box title="Asistencia de {{ $fdate }}" example="example1" color="danger">
-		        <data-table example="1">
+			<simple-box title="Asistencia de {{ $fdate }}" color="danger">
+		        <data-table example="Search">
                     <template slot="header">
                         <tr>
                             <th>ID</th>
-                            <th>Miembro</th>
-                            <th>Monto</th>
-                            <th></th>
+                            <th>Miembro - Horario</th>
+                            <th>Hora</th>
                         </tr>
                     </template>
                     <template slot="body">
-    				</template>
+                        @foreach ($attendences as $attendence)
+                            <tr>
+                                <td>{{ $attendence->id }}</td>
+                                <td>
+                                    <a href="{{ route('members.show', ['id' => $attendence->id])}}">{{ $attendence->member->name .' - ' . $attendence->member->schedule_id }}</a>
+                                </td>
+                                <td>{{ $attendence->hour }}</td>
+                            </tr>
+                        @endforeach
+                    </template>
                 </data-table>
 		    </simple-box>
 		</div>

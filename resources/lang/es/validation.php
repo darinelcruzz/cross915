@@ -166,7 +166,8 @@ return [
         'public'                => 'precio público',
         'price'                 => 'precio compra',
         'ingress'               => 'ingreso',
-        'amount'                => 'monto',      
+        'amount'                => 'monto',
+        'type'                  => 'tipo'
     ],
 
 ];

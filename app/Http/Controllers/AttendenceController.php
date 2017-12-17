@@ -16,17 +16,27 @@ class AttendenceController extends Controller
         $fdate = new Date(strtotime($date));
         $fdate = $fdate->format('l, j F Y');
 
-        return view('attendences.index', compact('date', 'fdate'));
+        $attendences = Attendence::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
+
+        return view('attendences.index', compact('date', 'fdate', 'attendences'));
     }
 
     public function create()
     {
-        return view('attendences.create');
+        $members = Member::pluck('name', 'id')->toArray();
+
+        return view('attendences.create', compact('members'));
     }
 
     public function store(Request $request)
     {
-        return redirect(route('expenses.show'));
+        $this->validate($request, [
+            'member_id' => 'required',
+        ]);
+
+        Attendence::create($request->all());
+
+        return redirect(route('attendences.show', [$request->member_id]));
     }
 
     public function show(Member $member)

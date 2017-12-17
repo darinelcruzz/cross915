@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Date\Date;
 
 class Attendence extends Model
 {
@@ -10,9 +11,20 @@ class Attendence extends Model
         'member_id'
     ];
 
-    function getNiceDate($date)
+    function member()
     {
-        $fdate = new Date(strtotime($this->$date));
-        return $fdate->format('l, j F Y');
+        return $this->belongsTo(Member::class);
+    }
+
+    function getHourAttribute()
+    {
+        $hour = new Date(strtotime($this->created_at));
+        return $hour->format('g:i a');
+    }
+
+    function getHourDateAttribute()
+    {
+        $hour = new Date(strtotime($this->created_at));
+        return $hour->format('g:i a d/M/y');
     }
 }

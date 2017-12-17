@@ -10,5 +10,8 @@ $factory->define(App\Member::class, function (Faker $faker) {
         'birthdate' => $faker->date,
         'email' => $faker->safeEmail,
         'cellphone' => $faker->tollFreePhoneNumber,
+        'schedule_id' => '8:00',
+        'membership_id' => 1,
+        'ingress' => '2006-07-05',
     ];
 });
