@@ -75,5 +75,32 @@ Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{product}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{product}', usesas($ctrl, 'show'));
+});
+
+Route::group(['prefix' => 'gastos', 'as' => 'expenses.'], function () {
+    $ctrl = 'ExpenseController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{expense}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{expense}', usesas($ctrl, 'show'));
+});
+
+Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
+    $ctrl = 'AttendenceController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::post('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{attendence}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{member}', usesas($ctrl, 'show'));
+});
+
+Route::group(['prefix' => 'administracion', 'as' => 'admin.'], function () {
+    $ctrl = 'AdminController';
+    Route::get('caja', usesas($ctrl, 'cash'));
+    Route::post('caja', usesas($ctrl, 'cash'));
 });
