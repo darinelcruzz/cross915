@@ -18,6 +18,10 @@ return [
                 'title' => 'Agregar',
                 'route' => 'members.create'
             ],
+            'attendence' => [
+                'title' => 'Asistencia',
+                'route' => 'attendences.index'
+            ],
         ]
     ],
 
@@ -46,15 +50,15 @@ return [
         'submenu' => [
             'balance' => [
                 'title' => 'Caja',
-                'route' => 'home'
+                'route' => 'admin.cash'
             ],
             'expenses' => [
                 'title' => 'Gastos',
-                'route' => 'home'
+                'route' => 'expenses.create'
             ],
             'memberships' => [
-                'title' => 'Membrecias',
-                'route' => 'home'
+                'title' => 'Membresias',
+                'route' => 'memberships.index'
             ],
         ]
     ],
@@ -106,6 +110,12 @@ return [
                 'route' => 'home'
             ],
         ]
+    ],
+
+    'attendence' => [
+        'title' => 'Asistencia',
+        'icon' => 'fa fa-check-square-o',
+        'route' => 'attendences.create'
     ],
 
     'logout' => [

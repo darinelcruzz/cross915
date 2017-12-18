@@ -165,7 +165,9 @@ return [
         'xlarge'                => 'XL',
         'public'                => 'precio público',
         'price'                 => 'precio compra',
-        'ingress'               => 'ingreso',      
+        'ingress'               => 'ingreso',
+        'amount'                => 'monto',
+        'type'                  => 'tipo'
     ],
 
 ];

@@ -21,6 +21,6 @@ class Member extends Model
     function getInscriptionAttribute()
     {
         $ingress = new Date(strtotime($this->ingress));
-        return $ingress->format('j \d\e F, Y');
+        return $ingress->format('j/F/y');
     }
 }
