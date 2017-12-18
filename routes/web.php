@@ -11,6 +11,7 @@ Route::get('salir', function () {
 
 Route::view('root', 'tests');
 Route::view('spa', 'website.root');
+Route::view('altroot', 'alternative');
 
 Route::get('tests', 'TestsController@index');
 

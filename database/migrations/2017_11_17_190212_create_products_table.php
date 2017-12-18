@@ -29,6 +29,8 @@ class CreateProductsTable extends Migration
             $table->integer('xlarge')->default(0);
             $table->double('public')->default(0);
             $table->double('price')->default(0);
+            $table->integer('status')->default(1);
+
 
             $table->timestamps();
         });

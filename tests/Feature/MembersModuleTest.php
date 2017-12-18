@@ -34,6 +34,7 @@ class MembersModuleTest extends TestCase
 
         $this->get(route('members.edit', ['member' => $member->id]))
             ->assertViewIs('members.edit')
+            ->assertStatus(200)
             ->assertSee('Editar miembro');
     }
 
@@ -44,6 +45,7 @@ class MembersModuleTest extends TestCase
 
         $this->get(route('members.show', ['member' => $member->id]))
             ->assertViewIs('members.show')
+            ->assertStatus(200)
             ->assertSee('Detalles miembro');
     }
 }

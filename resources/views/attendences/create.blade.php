@@ -18,9 +18,12 @@
                     {!! Form::open(['method' => 'POST', 'route' => 'attendences.store']) !!}
                         <div class="row">
                             <div class="col-md-12">
-                                {!! Field::select('member_id', $members, null,
-                                    ['empty' => 'Nombre / # de miembro', 'tpl' => 'templates/withicon'], ['icon' => 'user'])
-                                !!}
+                                <select name="member_id" class="form-control select2" style="width: 100%;">
+                                  <option selected="selected" disabled>Buscar por nombre o id</option>
+                                  @foreach ($members as $key => $value)
+                                      <option value="{{ $key }}">{{ $value . ' - ' . $key }}</option>
+                                  @endforeach
+                                </select>
                             </div>
                         </div>
                         <br>

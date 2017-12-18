@@ -14,6 +14,7 @@ class SalesModuleTest extends TestCase
     {
         $this->get(route('sales.index'))
             ->assertViewIs('sales.index')
+            ->assertStatus(200)
             ->assertSee('Lista de ventas');
     }
 
@@ -22,6 +23,7 @@ class SalesModuleTest extends TestCase
     {
         $this->get(route('sales.create'))
             ->assertViewIs('sales.create')
+
             ->assertSee('Crear venta');
     }
 
@@ -32,16 +34,18 @@ class SalesModuleTest extends TestCase
 
         $this->get(route('sales.edit', ['sale' => $sale->id]))
             ->assertViewIs('sales.edit')
+            ->assertStatus(200)
             ->assertSee('Editar venta');
     }
 
-    /** @test 
+    /** @test
     function shows_a_sale()
     {
         $sale = factory(\App\Sale::class)->create();
 
         $this->get(route('sales.show', ['sale' => $sale->id]))
             ->assertViewIs('sales.show')
+            ->assertStatus(200)
             ->assertSee('Detalles venta');
     }*/
 }

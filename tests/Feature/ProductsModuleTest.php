@@ -28,22 +28,13 @@ class ProductsModuleTest extends TestCase
     }
 
     /** @test */
-    /*function edits_a_product()
+    function edits_a_product()
     {
-        $product = factory(\App\Member::class)->create();
+        $product = factory(\App\Product::class)->create();
 
         $this->get(route('products.edit', ['product' => $product->id]))
             ->assertViewIs('products.edit')
+            ->assertStatus(200)
             ->assertSee('Editar producto');
     }
-
-    /** @test */
-    /*function shows_a_product()
-    {
-        $product = factory(\App\Member::class)->create();
-
-        $this->get(route('products.show', ['product' => $product->id]))
-            ->assertViewIs('products.show')
-            ->assertSee('Detalles producto');
-    }*/
 }

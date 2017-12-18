@@ -14,6 +14,7 @@ class WorkoutModuleTest extends TestCase
     {
         $this->get(route('workouts.index'))
             ->assertViewIs('workouts.index')
+            ->assertStatus(200)
             ->assertSee('WODs');
     }
 
@@ -22,6 +23,7 @@ class WorkoutModuleTest extends TestCase
     {
         $this->get(route('workouts.create'))
             ->assertViewIs('workouts.create')
+            ->assertStatus(200)
             ->assertSee('Crear WOD');
     }
 
@@ -32,6 +34,7 @@ class WorkoutModuleTest extends TestCase
 
         $this->get(route('workouts.edit', ['workout' => $workout->id]))
             ->assertViewIs('workouts.edit')
+            ->assertStatus(200)
             ->assertSee('Editar WOD');
     }
 }

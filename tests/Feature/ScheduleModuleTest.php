@@ -14,6 +14,7 @@ class ScheduleModuleTest extends TestCase
     {
         $this->get(route('schedules.index'))
             //->assertViewIs('schedules.index')
+            //->assertStatus(200)
             ->assertSee('HORARIOS');
     }
 
@@ -22,6 +23,7 @@ class ScheduleModuleTest extends TestCase
     {
         $this->get(route('schedules.create'))
             ->assertViewIs('schedules.create')
+            ->assertStatus(200)
             ->assertSee('Crear horario');
     }
 
@@ -32,6 +34,7 @@ class ScheduleModuleTest extends TestCase
 
         $this->get(route('schedules.edit', ['schedule' => $schedule->id]))
             ->assertViewIs('schedules.edit')
+            ->assertStatus(200)
             ->assertSee('Editar horario');
     }
 }
