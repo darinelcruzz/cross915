@@ -75,5 +75,15 @@ Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{product}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
-    Route::get('{member}', usesas($ctrl, 'show'));
+    Route::get('{product}', usesas($ctrl, 'show'));
+});
+
+Route::group(['prefix' => 'ventas', 'as' => 'sales.'], function () {
+    $ctrl = 'SaleController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{sale}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{sale}', usesas($ctrl, 'show'));
 });

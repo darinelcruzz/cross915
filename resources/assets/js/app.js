@@ -33,6 +33,8 @@ Vue.component('profile', require('./components/lte/UserProfile.vue'));
 Vue.component('pitem', require('./components/lte/UserProfileItem.vue'));
 Vue.component('modal', require('./components/lte/Modal.vue'));
 Vue.component('modal-button', require('./components/lte/ModalButton.vue'));
+Vue.component('ptable', require('./components/lte/ProductTable.vue'));
+Vue.component('prow', require('./components/lte/ProductRow.vue'));
 
 const app = new Vue({
     el: '#app',

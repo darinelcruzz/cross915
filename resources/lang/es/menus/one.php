@@ -27,7 +27,7 @@ return [
         'submenu' => [
             'sales' => [
                 'title' => 'Venta',
-                'route' => 'home'
+                'route' => 'sales.index'
             ],
             'credit' => [
                 'title' => 'Crédito',

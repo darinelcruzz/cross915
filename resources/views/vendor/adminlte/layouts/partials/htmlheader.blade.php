@@ -10,6 +10,8 @@
 
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('/plugins/dataTables.bootstrap.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('/plugins/select2.min.css') }}">
 
     {!! Charts::assets() !!}
 
