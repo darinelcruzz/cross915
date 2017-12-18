@@ -10,15 +10,6 @@ class MembershipModuleTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function loads_the_memberships_list()
-    {
-        $this->get(route('memberships.index'))
-            ->assertViewIs('memberships.index')
-            ->assertStatus(200)
-            ->assertSee('Lista de membresías');
-    }
-
-    /** @test */
     function creates_a_membership()
     {
         $this->get(route('memberships.create'))

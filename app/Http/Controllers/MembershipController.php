@@ -9,9 +9,7 @@ class MembershipController extends Controller
 {
     function index()
     {
-        $memberships = Membership::all();
-
-        return view('memberships.index', compact('memberships'));
+        // esta en AdminController@indexMD
     }
 
     function create()
@@ -30,7 +28,7 @@ class MembershipController extends Controller
 
         Membership::create($request->all());
 
-        return redirect(route('memberships.index'));
+        return redirect(route('admin.indexMD'));
     }
 
     function show(Membership $membership)
@@ -53,7 +51,7 @@ class MembershipController extends Controller
         ]);
         Membership::find($request->id)->update($request->all());
 
-        return redirect(route('memberships.index'));
+        return redirect(route('admin.indexMD'));
     }
 
     function destroy(Membership $membership)

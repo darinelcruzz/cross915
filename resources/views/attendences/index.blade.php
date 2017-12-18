@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{ $attendence->id }}</td>
                                 <td>
-                                    <a href="{{ route('members.show', ['id' => $attendence->id])}}">{{ $attendence->member->name .' - ' . $attendence->member->schedule_id }}</a>
+                                    <a href="{{ route('members.show', ['id' => $attendence->member_id])}}">{{ $attendence->member->name .' - ' . $attendence->member->schedule_id }}</a>
                                 </td>
                                 <td>{{ $attendence->hour }}</td>
                             </tr>

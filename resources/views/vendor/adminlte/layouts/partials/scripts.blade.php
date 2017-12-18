@@ -17,6 +17,9 @@
         $('#exampleDesc').DataTable({
             "order"     : [[0, "desc"]]
         })
+        $('#exampleDesc2').DataTable({
+            "order"     : [[0, "desc"]]
+        })
         $('#exampleSearch').DataTable({
           'paging'      : false,
           'lengthChange': false,

@@ -41,7 +41,9 @@ class AttendenceController extends Controller
 
     public function show(Member $member)
     {
-        return view('attendences.show', compact('member'));
+        $members = Member::pluck('name', 'id')->toArray();
+
+        return view('attendences.show', compact('member', 'members'));
     }
 
     public function edit(Attendance $attendance)

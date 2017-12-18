@@ -15,7 +15,8 @@ class AttendenceModuleTest extends TestCase
         $this->get(route('attendences.index'))
             ->assertViewIs('attendences.index')
             ->assertStatus(200)
-            ->assertSee('Buscar');
+            ->assertSee('Buscar')
+            ->assertSee('Asistencia de ');
     }
 
     /** @test */

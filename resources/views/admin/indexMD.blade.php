@@ -10,12 +10,20 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-2 col-md-push-10"  align="center">
+        <div class="col-md-6 col-sm-6 col-xs-6"  align="center">
             <a href="{{ route('memberships.create') }}" class="btn btn-app">
                 <i class="fa fa-plus"></i> Agregar membresía
             </a>
         </div>
-        <div class="col-md-10 col-md-pull-2">
+        <div class="col-md-6  col-sm-6 col-xs-6"  align="center">
+            <a href="{{ route('memberships.create') }}" class="btn btn-app">
+                <i class="fa fa-plus"></i> Agregar descuentos
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
             <solid-box color="danger" title="Lista de membresías">
                 <data-table example="Desc">
                     <template slot="header">
@@ -51,11 +59,31 @@
                                     @if ($membership->status == 1)
                                         <a href="{{ route('memberships.destroy', ['membership' => $membership->id])}}">
                                             <i class="fa fa-times" aria-hidden="true"></i>
-                                        </a>                                        
+                                        </a>
                                     @endif
                                 </td>
                             </tr>
                         @endforeach
+                    </template>
+                </data-table>
+            </solid-box>
+        </div>
+        <div class="col-md-6">
+            <solid-box color="danger" title="Lista de descuentos">
+                <data-table example="Desc2">
+                    <template slot="header">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </template>
+                    <template slot="body">
+
                     </template>
                 </data-table>
             </solid-box>

@@ -102,7 +102,6 @@ Route::group(['prefix' => 'gastos', 'as' => 'expenses.'], function () {
 Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
     $ctrl = 'AttendenceController';
     Route::get('/', usesas($ctrl, 'index'));
-    Route::post('/', usesas($ctrl, 'index'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{attendence}', usesas($ctrl, 'edit'));
@@ -112,8 +111,6 @@ Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
 
 Route::group(['prefix' => 'membresias', 'as' => 'memberships.'], function () {
     $ctrl = 'MembershipController';
-    Route::get('/', usesas($ctrl, 'index'));
-    Route::post('/', usesas($ctrl, 'index'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{membership}', usesas($ctrl, 'edit'));
@@ -126,4 +123,5 @@ Route::group(['prefix' => 'administracion', 'as' => 'admin.'], function () {
     $ctrl = 'AdminController';
     Route::get('caja', usesas($ctrl, 'cash'));
     Route::post('caja', usesas($ctrl, 'cash'));
+    Route::get('membrecias-descuentos', usesas($ctrl, 'indexMD'));
 });

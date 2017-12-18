@@ -57,8 +57,8 @@ return [
                 'route' => 'expenses.create'
             ],
             'memberships' => [
-                'title' => 'Membresias',
-                'route' => 'memberships.index'
+                'title' => 'Membresias y descuentos',
+                'route' => 'admin.indexMD'
             ],
         ]
     ],

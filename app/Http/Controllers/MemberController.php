@@ -52,7 +52,7 @@ class MemberController extends Controller
     {
         $attendences = Attendence::where('member_id', $member->id )->get();
 
-        return view('members.show', compact('member', 'attendences'));
+        return view('members.show', compact('member','attendences'));
     }
 
     function edit(Member $member)

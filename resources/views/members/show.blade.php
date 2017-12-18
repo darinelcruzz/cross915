@@ -66,9 +66,10 @@
             <solid-box title="Ultimos pagos" color="danger" collapsed button>
             </solid-box>
         </div>
+
         <div class="col-md-4">
-            <solid-box title="Asistencias" color="danger" collapsed button>
-                <data-table example="1">
+            <solid-box title="Asistenciassss" color="danger" collapsed button>
+                <data-table example="Desc">
                     <template slot="header">
                         <tr>
                             <th>ID</th>
