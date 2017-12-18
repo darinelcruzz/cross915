@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <solid-box color="danger" title="Lista de miembros">
-                <data-table example="1">
+                <data-table example="Desc">
                     <template slot="header">
                         <tr>
                             <th>ID</th>

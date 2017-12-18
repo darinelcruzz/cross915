@@ -57,7 +57,7 @@ class MemberController extends Controller
 
     function edit(Member $member)
     {
-        $memberships = ['Mensual', 'Horas'];
+        $memberships = Membership::where('status','1')->pluck('name', 'id')->toArray();
         $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00', '17:00' => '17:00',
             '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00'];
         return view('members.edit', compact('member', 'memberships', 'schedules'));
