@@ -111,6 +111,7 @@ Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
 
 Route::group(['prefix' => 'membresias', 'as' => 'memberships.'], function () {
     $ctrl = 'MembershipController';
+    Route::get('/', usesas($ctrl, 'index'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{membership}', usesas($ctrl, 'edit'));

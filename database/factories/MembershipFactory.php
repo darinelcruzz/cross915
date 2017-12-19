@@ -5,9 +5,11 @@ use Faker\Generator as Faker;
 $factory->define(App\Membership::class, function (Faker $faker) {
     return [
         'name' => 'Estudiante',
-        'description' => 'Memresía para estudiantes',
-        'type' => 'meses',
+        'description' => 'Membresía para estudiantes',
+        'visits' => 0,
+        'month' => 1,
         'amount' => 550,
+        'type' => 'm',
         'status' => 1,
     ];
 });

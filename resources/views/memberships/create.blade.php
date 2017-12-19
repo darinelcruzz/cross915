@@ -16,8 +16,14 @@
 
                     {!! Field::text('name', ['tpl' => 'templates/withicon'], ['icon' => 'id-card-o']) !!}
                     {!! Field::text('description', ['tpl' => 'templates/withicon'], ['icon' => 'indent']) !!}
-                    {!! Field::select('type',['año' => 'Anual', 'meses' => 'Mesual', 'dias' => 'Días'], null,
-                        ['empty' => 'Seleccione el tipo', 'tpl' => 'templates/withicon'], ['icon' => 'calendar'])!!}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::number('visits', 0, ['tpl' => 'templates/withicon', 'min' => '0'], ['icon' => 'sign-in']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::number('months', 0, ['tpl' => 'templates/withicon', 'min' => '0'], ['icon' => 'calendar']) !!}
+                        </div>
+                    </div>
                     {!! Field::number('amount', 0, ['step' => '0.01', 'min' => '0', 'tpl' => 'templates/withicon'], ['icon' => 'dollar']) !!}
                     <hr>
                     <input type="hidden" name="status" value="1">

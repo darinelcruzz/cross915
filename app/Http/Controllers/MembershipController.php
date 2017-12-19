@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Membership;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 class MembershipController extends Controller
 {
     function index()
     {
         // esta en AdminController@indexMD
+        $next = Date::now()->format('d-m-Y');
+        $holi = new Date(strtotime('28-02-2017'));
+        $month = $holi->add('1 month')->format('d-m-Y');
+        dd($month);
+
     }
 
     function create()
@@ -22,11 +28,17 @@ class MembershipController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'type' => 'required',
+            'visits' => 'required',
+            'months' => 'required',
             'amount' => 'required',
         ]);
 
-        Membership::create($request->all());
+        $membership = Membership::create($request->all());
+
+        $type = $request->visits == 0 ? 'm' : 'v';
+        $membership->update([
+            'type' => "$type"
+        ]);
 
         return redirect(route('admin.indexMD'));
     }
@@ -46,10 +58,15 @@ class MembershipController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'type' => 'required',
+            'visits' => 'required',
+            'months' => 'required',
             'amount' => 'required',
         ]);
         Membership::find($request->id)->update($request->all());
+        $type = $request->visits == 0 ? 'm' : 'v';
+        Membership::find($request->id)->update([
+            'type' => "$type"
+        ]);
 
         return redirect(route('admin.indexMD'));
     }
