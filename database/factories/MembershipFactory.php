@@ -7,7 +7,7 @@ $factory->define(App\Membership::class, function (Faker $faker) {
         'name' => 'Estudiante',
         'description' => 'Membresía para estudiantes',
         'visits' => 0,
-        'month' => 1,
+        'months' => 1,
         'amount' => 550,
         'type' => 'm',
         'status' => 1,

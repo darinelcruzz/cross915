@@ -169,7 +169,8 @@ return [
         'amount'                => 'monto',
         'type'                  => 'tipo',
         'visits'                => 'visitas',
-        'months'                => 'meses'
+        'months'                => 'meses',
+        'comments'              => 'comentarios'
     ],
 
 ];

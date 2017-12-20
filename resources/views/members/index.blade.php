@@ -39,8 +39,8 @@
                                     <i class="fa fa-tint"></i>&nbsp;&nbsp;&nbsp;{{ $member->blood }}
                                 </td>
                                 <td>
-                                    {{ $member->membership_id == 1 ? 'Estudiante' : 'Mensual' }} <br>
-                                    <b>Último pago:</b> {{ $member->date }} <br>
+                                    <i class="fa fa-id-card-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->membership->name }} <br>
+                                    <b>Próx. pago:</b> {{ $member->getShortDate('validity') }} <br>
                                     <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->schedule_id }} <br>
                                 </td>
                                 <td>

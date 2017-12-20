@@ -31,7 +31,6 @@
                                 ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
                             {!! Field::select('blood',
@@ -40,23 +39,29 @@
                                     ['empty' => 'Seleccione el tipo de sangre', 'tpl' => 'templates/withicon'], ['icon' => 'tint'])!!}
                         </div>
                     </div>
-                    <hr>
                     <div class="row">
-                        <div class="col-md-6">
-                            {!! Field::select('membership_id', $memberships, null,
-                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'credit-card']) !!}
-                        </div>
                         <div class="col-md-6">
                             {!! Field::select('schedule_id', $schedules, null,
                                 ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un horario'], ['icon' => 'clock-o']) !!}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6  col-md-offset-3">
+                        <div class="col-md-6">
                             {!! Field::date('ingress', $date,['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
                         </div>
                     </div>
 
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Field::select('membership_id', $memberships, null,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'id-card-o']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            Detalles de pago
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="payment" value="{{ $date }}">
                     {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
                 {!! Form::close() !!}
             </simple-box>

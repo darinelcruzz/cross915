@@ -53,10 +53,10 @@
                         <div class="col-md-6">
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>Último pago</b> <a class="pull-right">10/noviembre</a>
+                                    <b>Último pago</b> <a class="pull-right">{{ $member->getShortDate('payment') }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Vigencia</b> <a class="pull-right">lun, 10/diciembre</a>
+                                    <b>Vigencia</b> <a class="pull-right">{{ $member->getShortDate('validity') }}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>No se</b> <a class="pull-right">1</a>
@@ -65,7 +65,14 @@
                         </div>
                     </div>
                     <div class="callout callout-success">
-                        <h4 align="center">Te quedan: 15 días para tu proximo pago</h4>
+                        <h4 align="center">Te quedan:
+                            @if ($member->membership->type == 'm')
+                                {{ $member->pendigDays }}
+                            @else
+                                {{ $member->visits . ' visitas o ' .  $member->pendigDays }}
+                            @endif
+
+                        para tu proximo pago</h4>
                     </div>
                 </div>
             </div>

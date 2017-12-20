@@ -36,6 +36,13 @@ class AttendenceController extends Controller
 
         Attendence::create($request->all());
 
+        $member = Member::find($request->member_id);
+        $visits = $member->visits - 1;
+
+        $member->update([
+            'visits' => "$visits",
+        ]);
+
         return redirect(route('attendences.show', [$request->member_id]));
     }
 

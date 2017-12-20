@@ -9,6 +9,7 @@ use App\Member;
 use App\User;
 use App\Attendence;
 use App\Membership;
+use App\Payment;
 
 class MemberController extends Controller
 {
@@ -33,7 +34,9 @@ class MemberController extends Controller
             'name' => 'required',
             'birthdate' => 'required',
             'gender' => 'required',
-            'blood' => 'required'
+            'blood' => 'required',
+            'schedule_id' => 'required',
+            'membership_id' => 'required',
         ]);
 
         $member = Member::create($request->all());
@@ -43,6 +46,19 @@ class MemberController extends Controller
             'email' => $member->id,
             'password' => Hash::make($member->birthdate),
             'level' => 3
+        ]);
+        Payment::create([
+            'member_id' => $member->id,
+            'membership_id' => $member->membership_id,
+        ]);
+
+        $membership = Membership::find($request->membership_id);
+        $validity = new Date(strtotime($member->payment));
+        $validity->add($membership->months . 'month')->format('Y-m-d');
+
+        $member->update([
+            'visits' => "$membership->visits",
+            'validity' => "$validity",
         ]);
 
         return redirect(route('members.index'));
@@ -66,13 +82,19 @@ class MemberController extends Controller
     function update(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'birthdate' => 'required',
-            'gender' => 'required',
-            'blood' => 'required'
+            'name' => 'sometimes|required',
+            'birthdate' => 'sometimes|required',
+            'gender' => 'sometimes|required',
+            'blood' => 'sometimes|required',
+            'schedule_id' => 'sometimes|required',
+            'comments' => 'sometimes|required',
         ]);
 
         Member::find($request->id)->update($request->all());
+
+        if ($request->comments) {
+            return redirect(route('members.show', [$request->id]));
+        }
 
         return redirect(route('members.index'));
     }
