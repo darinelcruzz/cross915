@@ -16,6 +16,13 @@
                     <img class="profile-user-img img-responsive img-circle" src="/img/avatar2.png" alt="User profile picture">
                     <h3 class="profile-username text-center">{{ $member->name }}</h3>
                     <p class="text-muted text-center">{{ $member->membership_id == 1 ? 'Estudiante' : 'Mensual' }}</p>
+                    {!! Form::open(['method' => 'POST', 'route' => 'members.update']) !!}
+                        {!! Field::textarea('comments', $member->comments, ['tpl' => 'templates/withicon', 'rows' => '3', 'placeholder' => 'Comentarios...'],
+                            ['icon' => 'font']) !!}
+                        <br>
+                        <input type="hidden" name="id" value="{{ $member->id }}">
+                        {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
@@ -24,8 +31,13 @@
                 @include('templates.headTable')
                         <tr>
                             <td><B>Horario:</B><dd>{{ $member->schedule_id }}</dd></td>
-                            <td><B>Fecha de ingreso:</B><dd>{{ $member->inscription }}</dd></td>
-                            <td><B>Último pago:</B><dd></dd></td>
+                            <td><B>Fecha de ingreso:</B><dd>{{ $member->getDate('ingress') }}</dd></td>
+                            <td><B>Último pago:</B><dd>{{ $member->getDate('payment') }}</dd></td>
+                        </tr>
+                        <tr>
+                            <td><B>Membresía:</B><dd>{{ $member->membership->name }}</dd></td>
+                            <td><B>Visitas:</B><dd>{{ $member->membership->type == 'm' ? 'Ilimitadas' : $member->visits }}</dd></td>
+                            <td><B>Próximo pago:</B><dd>{{ $member->getDate('validity') }}</dd></td>
                         </tr>
                     </tbody>
                 </table>

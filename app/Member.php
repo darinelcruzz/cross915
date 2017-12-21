@@ -8,9 +8,15 @@ use Jenssegers\Date\Date;
 class Member extends Model
 {
     protected $fillable = [
-        'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone',
-        'membership_id', 'registration', 'schedule_id', 'user_id', 'status', 'ingress'
+        'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone', 'comments', 'visits',
+        'membership_id', 'registration', 'schedule_id', 'user_id', 'status', 'ingress',
+        'payment', 'validity'
     ];
+
+    function membership()
+    {
+        return $this->belongsTo(Membership::class);
+    }
 
     function getBirthdayAttribute()
     {
@@ -18,9 +24,23 @@ class Member extends Model
         return $birthdate->format('j \d\e F');
     }
 
-    function getInscriptionAttribute()
+    function getDate($date)
     {
-        $ingress = new Date(strtotime($this->ingress));
-        return $ingress->format('j/F/y');
+        $datef = new Date(strtotime($this->$date));
+        return $datef->format('d/F/y');
+    }
+
+    function getShortDate($date)
+    {
+        $datef = new Date(strtotime($this->$date));
+        return $datef->format('d/m/y');
+    }
+
+    function getPendigDaysAttribute()
+    {
+        $payment = new Date(strtotime($this->payment));
+        $validity = new Date(strtotime($this->validity));
+        $interval = $payment->diff($validity);
+        return $interval->format('%a días');
     }
 }

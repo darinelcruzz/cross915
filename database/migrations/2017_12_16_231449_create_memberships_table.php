@@ -18,8 +18,10 @@ class CreateMembershipsTable extends Migration
 
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('type')->nullable();
             $table->double('amount')->nullable();
+            $table->integer('visits')->nullable();
+            $table->integer('months')->nullable();
+            $table->string('type')->nullable();
             $table->integer('status')->nullable();
 
             $table->timestamps();

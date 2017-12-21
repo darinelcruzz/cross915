@@ -167,7 +167,10 @@ return [
         'price'                 => 'precio compra',
         'ingress'               => 'ingreso',
         'amount'                => 'monto',
-        'type'                  => 'tipo'
+        'type'                  => 'tipo',
+        'visits'                => 'visitas',
+        'months'                => 'meses',
+        'comments'              => 'comentarios'
     ],
 
 ];

@@ -43,16 +43,10 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            {!! Field::select('membership_id', $memberships, $member->membership_id,
-                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'credit-card']) !!}
-                        </div>
-                        <div class="col-md-6">
                             {!! Field::select('schedule_id', $schedules, $member->schedule_id,
                                 ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un horario'], ['icon' => 'clock-o']) !!}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6  col-md-offset-3">
+                        <div class="col-md-6">
                             {!! Field::date('ingress', $member->ingress,['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
                         </div>
                     </div>
