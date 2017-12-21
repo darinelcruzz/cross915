@@ -26906,30 +26906,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            product_id: 1,
+            product_id: 0,
             quantity: 0,
             total: 0,
-            price: 0
+            price: 0,
+            type: 'unisize',
+            products: []
         };
     },
 
-    props: ['products', 'num'],
+    props: ['num'],
     methods: {
         updateTotal: function updateTotal() {
-            this.total = this.products[this.product_id].public * this.quantity;
+            if (this.product_id > 0) {
+                this.total = this.products[this.product_id].public * this.quantity;
+            }
+            this.$emit('subtotal', this.total, this.num);
         }
     },
     watch: {
         product_id: function product_id(val, oldVal) {
             this.price = this.products[val].public;
+            this.type = this.products[val].type;
+        }
+    },
+    filters: {
+        twoDecimals: function twoDecimals(value) {
+            return value.toFixed(2);
         }
     },
     created: function created() {
-        this.price = this.products[this.product_id].public;
+        var _this = this;
+
+        axios.get('/products').then(function (response) {
+            _this.products = response.data;
+        });
     }
 });
 
@@ -26963,19 +26997,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            products: []
+            total: 0,
+            subtotals: [0, 0, 0, 0, 0]
         };
     },
-    created: function created() {
-        var _this = this;
 
-        axios.get('/products').then(function (response) {
-            _this.products = response.data;
-        });
+    methods: {
+        addToTotal: function addToTotal(total, num) {
+            this.subtotals[num - 1] = total;
+            this.total = this.subtotals.reduce(function (total, value) {
+                return total + value;
+            }, 0);
+        }
+    },
+    filters: {
+        money: function money(value) {
+            return value.toFixed(2);
+        }
     }
 });
 
@@ -27320,7 +27374,7 @@ Vue.component('reset-password-form', __webpack_require__(84));
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 73 */
@@ -27334,21 +27388,21 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 77 */
@@ -47381,7 +47435,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.product_id),
       expression: "product_id"
     }],
-    staticClass: "form-control select2",
+    staticClass: "form-control",
     staticStyle: {
       "width": "100%"
     },
@@ -47414,6 +47468,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "align": "center"
     }
+  }, [(_vm.type != 'unisize') ? _c('div', {
+    staticClass: "form-group"
+  }, [_vm._m(0)]) : _c('div', [_vm._v("\n            N/A\n            "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "sizes[]",
+      "value": "unisize"
+    }
+  })])]), _vm._v(" "), _c('td', {
+    attrs: {
+      "align": "center"
+    }
   }, [_c('div', {
     staticClass: "form-group"
   }, [_c('input', {
@@ -47443,8 +47509,43 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.quantity = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.total))])])
-},staticRenderFns: []}
+  })])]), _vm._v(" "), _c('td', [_vm._v("\n        " + _vm._s(_vm.price) + "\n        "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "amounts[]"
+    },
+    domProps: {
+      "value": _vm.price
+    }
+  })]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm._f("twoDecimals")(_vm.total)))])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('select', {
+    staticClass: "form-control",
+    attrs: {
+      "name": "sizes[]"
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "xsmall"
+    }
+  }, [_vm._v("XS")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "small"
+    }
+  }, [_vm._v("S")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "medium"
+    }
+  }, [_vm._v("M")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "large"
+    }
+  }, [_vm._v("L")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "xlarge"
+    }
+  }, [_vm._v("XL")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -47626,32 +47727,56 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "table table-bordered table-striped"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', [_c('prow', {
     attrs: {
-      "num": 1,
-      "products": _vm.products
+      "num": 1
+    },
+    on: {
+      "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 2,
-      "products": _vm.products
+      "num": 2
+    },
+    on: {
+      "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 3,
-      "products": _vm.products
+      "num": 3
+    },
+    on: {
+      "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 4,
-      "products": _vm.products
+      "num": 4
+    },
+    on: {
+      "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 5,
-      "products": _vm.products
+      "num": 5
+    },
+    on: {
+      "subtotal": _vm.addToTotal
     }
-  })], 1)])])
+  })], 1), _vm._v(" "), _c('tfoot', [_c('tr', [_c('td', {
+    attrs: {
+      "colspan": "4"
+    }
+  }), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('td', [_vm._v("\n                    $ " + _vm._s(_vm._f("money")(_vm.total)) + "\n                    "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "total"
+    },
+    domProps: {
+      "value": _vm.total
+    }
+  })])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Producto")]), _vm._v(" "), _c('th', [_vm._v("Cantidad")]), _vm._v(" "), _c('th', [_vm._v("P. Unitario")]), _vm._v(" "), _c('th', [_vm._v("Total")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Producto")]), _vm._v(" "), _c('th', [_vm._v("Talla")]), _vm._v(" "), _c('th', [_vm._v("Cantidad")]), _vm._v(" "), _c('th', [_vm._v("P. Unitario")]), _vm._v(" "), _c('th', [_vm._v("Total")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('td', [_c('b', [_vm._v("Total:")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

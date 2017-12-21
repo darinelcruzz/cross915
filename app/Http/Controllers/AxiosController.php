@@ -8,7 +8,7 @@ class AxiosController extends Controller
 {
     function products()
     {
-        $products = \App\Product::select('id', 'description', 'public')->get();
+        $products = \App\Product::select('id', 'description', 'public', 'type')->get();
         return $products->keyBy('id');
     }
 }

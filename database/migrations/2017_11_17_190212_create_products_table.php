@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('family')->nullable();
             $table->string('provider')->nullable();
             $table->string('img')->nullable();
+            $table->string('type')->nullable();
             $table->integer('unisize')->default(0);
             $table->integer('xsmall')->default(0);
             $table->integer('small')->default(0);

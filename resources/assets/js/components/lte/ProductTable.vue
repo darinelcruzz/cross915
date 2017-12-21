@@ -5,6 +5,7 @@
                 <tr>
                     <th>#</th>
                     <th>Producto</th>
+                    <th>Talla</th>
                     <th>Cantidad</th>
                     <th>P. Unitario</th>
                     <th>Total</th>
@@ -12,12 +13,23 @@
             </thead>
 
             <tbody>
-                <prow :num="1" :products="products"></prow>
-                <prow :num="2" :products="products"></prow>
-                <prow :num="3" :products="products"></prow>
-                <prow :num="4" :products="products"></prow>
-                <prow :num="5" :products="products"></prow>
+                <prow :num="1" @subtotal="addToTotal"></prow>
+                <prow :num="2" @subtotal="addToTotal"></prow>
+                <prow :num="3" @subtotal="addToTotal"></prow>
+                <prow :num="4" @subtotal="addToTotal"></prow>
+                <prow :num="5" @subtotal="addToTotal"></prow>
             </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4"></td>
+                    <td><b>Total:</b></td>
+                    <td>
+                        $ {{ total | money }}
+                        <input type="hidden" name="total" :value="total">
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </template>
@@ -26,13 +38,22 @@
 export default {
     data() {
         return {
-            products: [],
+            total: 0,
+            subtotals: [0, 0, 0, 0, 0],
         };
     },
-    created() {
-        axios.get('/products').then(response => {
-            this.products = response.data;
-        });
+    methods: {
+        addToTotal(total, num) {
+            this.subtotals[num - 1] = total;
+            this.total = this.subtotals.reduce(function (total, value) {
+                return total + value;
+            }, 0);
+        }
+    },
+    filters: {
+      money: function (value) {
+        return value.toFixed(2);
+      }
     }
 }
 </script>
