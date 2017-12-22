@@ -54,7 +54,7 @@
                                     <i class="fa fa-barcode" aria-hidden="true"></i> {{ $product->code }} <br>
                                     <i class="fa fa-tags" aria-hidden="true"></i> {{ $product->family }}
                                 </td>
-                                @if ($product->unisize)
+                                @if ($product->type == 'unisize')
                                     <td>
                                         <span class="label label-default">{{ $product->unisize }}</span>
                                     </td>
