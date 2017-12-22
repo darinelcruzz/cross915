@@ -31,6 +31,7 @@ class AttendenceModuleTest extends TestCase
     /** @test */
     function shows_an_attendence()
     {
+        $membership = factory(\App\Membership::class)->create();
         $member = factory(\App\Member::class)->create();
 
         $this->get(route('attendences.show', ['member' => $member->id]))

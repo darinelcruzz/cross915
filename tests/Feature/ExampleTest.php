@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /** @test */
     function loads_home_page()
     {
