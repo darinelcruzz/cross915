@@ -15,7 +15,13 @@
                 <div class="box-body box-profile">
                     <img class="profile-user-img img-responsive img-circle" src="/img/avatar2.png" alt="User profile picture">
                     <h3 class="profile-username text-center">{{ $member->name }}</h3>
-                    <p class="text-muted text-center">{{ $member->membership_id == 1 ? 'Estudiante' : 'Mensual' }}</p>
+                    <p class="text-muted text-center">
+                        @if ($member->status == 1)
+                            <span class="label label-success">Activo</span>
+                        @else
+                            <span class="label label-danger">Cancelado</span>
+                        @endif
+                    </p>
                     {!! Form::open(['method' => 'POST', 'route' => 'members.update']) !!}
                         {!! Field::textarea('comments', $member->comments, ['tpl' => 'templates/withicon', 'rows' => '3', 'placeholder' => 'Comentarios...'],
                             ['icon' => 'font']) !!}
@@ -41,7 +47,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <br>
 
                 <div class="box-header with-border">
                     <h3 class="box-title">
@@ -54,9 +59,13 @@
                             <td><B>Tipo de Sangre:</B><dd>{{ $member->blood }}</dd></td>
                             <td><B>Sexo:</B><dd>{{ $member->sex == 'M' ? 'Masculino' : 'Femenino' }}</dd></td>
                         </tr>
+                        <tr>
+                            <td><B>Estado civil:</B><dd>{{ $member->civil }}</dd></td>
+                            <td><B>Profesión:</B><dd>{{ $member->profession }}</dd></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
-                <br>
 
                 <div class="box-header with-border">
                     <h3 class="box-title">
@@ -67,6 +76,7 @@
                         <tr>
                             <td><B>Correo:</B><dd>{{ $member->email }}</dd></td>
                             <td><B>Celular:</B><dd>{{ $member->cellphone }}</dd></td>
+                            <td><B>Dirección:</B><dd>{{ $member->address }}</dd></td>
                         </tr>
                     </tbody>
                 </table>
@@ -80,7 +90,7 @@
         </div>
 
         <div class="col-md-4">
-            <solid-box title="Asistenciassss" color="danger" collapsed button>
+            <solid-box title="Asistencias" color="danger" collapsed button>
                 <data-table example="Desc">
                     <template slot="header">
                         <tr>

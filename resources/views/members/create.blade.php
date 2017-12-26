@@ -10,7 +10,7 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-8 col-md-offset-2">
             <simple-box title="Agregar datos" color="danger">
                 {!! Form::open(['method' => 'POST', 'route' => 'members.store']) !!}
                     {!! Field::text('name', ['tpl' => 'templates/withicon'], ['icon' => 'id-card-o']) !!}
@@ -24,15 +24,26 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            {!! Field::text('address', ['tpl' => 'templates/withicon'], ['icon' => 'map-marker']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::text('civil', ['tpl' => 'templates/withicon'], ['icon' => 'gavel']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             {!! Field::date('birthdate', ['tpl' => 'templates/withicon'], ['icon' => 'birthday-cake']) !!}
                         </div>
+                        <div class="col-md-6">
+                            {!! Field::text('profession', ['tpl' => 'templates/withicon'], ['icon' => 'briefcase']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             {!! Field::select('gender', ['M' => 'Masculino', 'F' => 'Femenino'], null,
                                 ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-6">
                             {!! Field::select('blood',
                                     ['A+' => 'A+', 'A-' => 'A-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'B+' => 'B+',
                                     'B-' => 'B-', 'O+' => 'O+', 'O-' => 'O-'], null,

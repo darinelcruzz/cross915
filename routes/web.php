@@ -29,6 +29,7 @@ Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
     Route::get('editar/{member}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{member}', usesas($ctrl, 'show'));
+    Route::get('cancelar/{member}', usesas($ctrl, 'destroy'));
 });
 
 Route::group(['prefix' => 'entrenadores', 'as' => 'coaches.'], function () {
@@ -117,7 +118,7 @@ Route::group(['prefix' => 'membresias', 'as' => 'memberships.'], function () {
     Route::get('editar/{membership}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{membership}', usesas($ctrl, 'show'));
-    Route::get('{membership}', usesas($ctrl, 'destroy'));
+    Route::get('cancelar/{membership}', usesas($ctrl, 'destroy'));
 });
 
 Route::group(['prefix' => 'administracion', 'as' => 'admin.'], function () {

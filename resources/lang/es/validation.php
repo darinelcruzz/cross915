@@ -170,7 +170,9 @@ return [
         'type'                  => 'tipo',
         'visits'                => 'visitas',
         'months'                => 'meses',
-        'comments'              => 'comentarios'
+        'comments'              => 'comentarios',
+        'civil'                 => 'estado civil',
+        'profession'            => 'profesión'
     ],
 
 ];

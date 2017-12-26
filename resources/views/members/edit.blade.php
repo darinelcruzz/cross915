@@ -24,23 +24,33 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            {!! Field::text('address', $member->address, ['tpl' => 'templates/withicon'], ['icon' => 'map-marker']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Field::text('civil', $member->civil, ['tpl' => 'templates/withicon'], ['icon' => 'gavel']) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             {!! Field::date('birthdate', $member->birthdate, ['tpl' => 'templates/withicon'], ['icon' => 'birthday-cake']) !!}
                         </div>
                         <div class="col-md-6">
-                            {!! Field::select('gender', ['M' => 'Masculino', 'F' => 'Femenino'], $member->gender,
-                                ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
+                            {!! Field::text('profession', $member->profession, ['tpl' => 'templates/withicon'], ['icon' => 'briefcase']) !!}
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-6">
+                            {!! Field::select('gender', ['M' => 'Masculino', 'F' => 'Femenino'], $member->gender,
+                                ['tpl' => 'templates/withicon', 'empty' => 'Elije sexo'], ['icon' => 'venus-mars']) !!}
+                        </div>
+                        <div class="col-md-6">
                             {!! Field::select('blood',
                                     ['A+' => 'A+', 'A-' => 'A-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'B+' => 'B+',
                                     'B-' => 'B-', 'O+' => 'O+', 'O-' => 'O-'], $member->blood,
                                     ['empty' => 'Seleccione el tipo de sangre', 'tpl' => 'templates/withicon'], ['icon' => 'tint'])!!}
                         </div>
                     </div>
-                    <hr>
                     <div class="row">
                         <div class="col-md-6">
                             {!! Field::select('schedule_id', $schedules, $member->schedule_id,
@@ -53,6 +63,7 @@
 
                     <hr>
                     <input type="hidden" name="id" value="{{ $member->id }}">
+                    <input type="hidden" name="status" value="1">
                     {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
                 {!! Form::close() !!}
             </simple-box>

@@ -15,8 +15,9 @@ class MemberController extends Controller
 {
     function index()
     {
-        $members = Member::all();
-        return view('members.index', compact('members'));
+        $membersA = Member::where('status','1')->get();
+        $membersC = Member::where('status','0')->get();
+        return view('members.index', compact('membersA', 'membersC'));
     }
 
     function create()
@@ -101,8 +102,12 @@ class MemberController extends Controller
         return redirect(route('members.index'));
     }
 
-    function destroy($id)
+    function destroy(Member $member)
     {
-        //
+        $member->update([
+            'status' => 0
+        ]);
+
+        return redirect(route('members.index'));
     }
 }

@@ -22,6 +22,9 @@ class CreateMembersTable extends Migration
             $table->string('blood')->nullable();
             $table->string('email')->nullable();
             $table->string('cellphone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('civil')->nullable();
             $table->date('ingress')->nullable();
             $table->string('schedule_id')->nullable();
             $table->integer('membership_id')->nullable();

@@ -10,7 +10,7 @@ class Member extends Model
     protected $fillable = [
         'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone', 'comments', 'visits',
         'membership_id', 'registration', 'schedule_id', 'user_id', 'status', 'ingress',
-        'payment', 'validity'
+        'payment', 'validity', 'civil', 'profession', 'address'
     ];
 
     function membership()
