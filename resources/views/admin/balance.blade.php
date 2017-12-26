@@ -22,11 +22,22 @@
 				{!! Form::close() !!}
 			</solid-box>
 		</div>
-        <div class="col-lg-4 col-md-6 col-lg-offset-3 col-md-offset-1">
+        <div class="col-lg-3 col-md-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <p>Efectivo</p>
-                    <h3>$0.00</h3>
+                    <p>Productos</p>
+                    <h3>${{ number_format($sum,2) }}</h3>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-money"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <p>Membresias</p>
+                    <h3>${{ number_format($sum,2) }}</h3>
                 </div>
                 <div class="icon">
                     <i class="fa fa-money"></i>
@@ -44,10 +55,23 @@
                             <th>ID</th>
                             <th>Miembro</th>
                             <th>Monto</th>
-                            <th></th>
                         </tr>
                     </template>
                     <template slot="body">
+                        @foreach ($payments as $payment)
+                            <tr>
+                                <td>{{ $payment->id }}</td>
+                                <td>{{ $payment->member->name }}</td>
+                                <td>${{ number_format($payment->amount,2) }}</td>
+                            </tr>
+                        @endforeach
+    				</template>
+                    <template slot="footer">
+                        <tr>
+                            <td></td>
+                            <td>Total</td>
+                            <td>${{ number_format($sum,2) }}</td>
+                        </tr>
     				</template>
                 </data-table>
 		    </simple-box>

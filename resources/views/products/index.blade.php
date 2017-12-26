@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-10 col-md-pull-2">
             <solid-box color="danger" title="Lista de productos">
-                <data-table example="1">
+                <data-table example="Desc">
                     <template slot="header">
                         <tr>
                             <th>ID</th>
@@ -30,6 +30,7 @@
                                 <span class="label label-warning">L</span>
                                 <span class="label label-danger">XL</span>
                             </th>
+                            <th></th>
                         </tr>
                     </template>
 

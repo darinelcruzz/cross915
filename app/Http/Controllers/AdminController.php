@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Sales;
 use App\Member;
 use App\Membership;
+use App\Payment;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,10 @@ class AdminController extends Controller
         $fdate = new Date(strtotime($date));
         $fdate = $fdate->format('l, j F Y');
 
-        return view('admin.balance', compact('date', 'fdate'));
+        $payments = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
+        $sum = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
+
+        return view('admin.balance', compact('date', 'fdate', 'payments', 'sum'));
     }
 
     function indexMD()

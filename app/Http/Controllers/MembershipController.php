@@ -11,11 +11,6 @@ class MembershipController extends Controller
     function index()
     {
         // esta en AdminController@indexMD
-        $next = Date::now()->format('d-m-Y');
-        $holi = new Date(strtotime('28-02-2017'));
-        $month = $holi->add('1 month')->format('d-m-Y');
-        dd($month);
-
     }
 
     function create()

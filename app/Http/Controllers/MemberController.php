@@ -47,14 +47,16 @@ class MemberController extends Controller
             'password' => Hash::make($member->birthdate),
             'level' => 3
         ]);
-        Payment::create([
-            'member_id' => $member->id,
-            'membership_id' => $member->membership_id,
-        ]);
 
         $membership = Membership::find($request->membership_id);
         $validity = new Date(strtotime($member->payment));
         $validity->add($membership->months . 'month')->format('Y-m-d');
+
+        Payment::create([
+            'member_id' => $member->id,
+            'membership_id' => $member->membership_id,
+            'amount' => "$membership->amount",
+        ]);
 
         $member->update([
             'visits' => "$membership->visits",

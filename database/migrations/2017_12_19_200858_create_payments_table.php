@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
 
             $table->integer('member_id')->nullable();
             $table->integer('membership_id')->nullable();
+            $table->integer('amount')->nullable();
 
             $table->timestamps();
         });

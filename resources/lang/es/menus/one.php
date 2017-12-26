@@ -63,7 +63,7 @@ return [
         ]
     ],
 
-    'training' => [
+    /*'training' => [
         'title' => 'Entrenamiento',
         'icon' => 'fa fa-clock-o',
         'submenu' => [
@@ -95,7 +95,7 @@ return [
                 'route' => 'workouts.index'
             ],
         ]
-    ],
+    ],*/
 
     'users' => [
         'title' => 'Usuarios',

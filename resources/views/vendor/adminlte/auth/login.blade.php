@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8" align="center" valign="middle">
-                        <img width="100%" height="100%" src="{{ asset('img/photo1.png') }}">
+                        <img width="100%" height="100%" src="{{ asset('/img/Cross915.png') }}">
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        {!! Form::submit('Entrar', ['class' => 'btn btn-primary btn-block']) !!}
+                        {!! Form::submit('Entrar', ['class' => 'btn btn-danger btn-block']) !!}
                     </div>
                 </div>
                 {!! Form::close() !!}
