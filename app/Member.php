@@ -35,12 +35,17 @@ class Member extends Model
         $datef = new Date(strtotime($this->$date));
         return $datef->format('d/m/y');
     }
+    function getShortWeekDate($date)
+    {
+        $datef = new Date(strtotime($this->$date));
+        return $datef->format('D, d/m/y');
+    }
 
     function getPendigDaysAttribute()
     {
-        $payment = new Date(strtotime($this->payment));
+        $payment = Date::now();
         $validity = new Date(strtotime($this->validity));
         $interval = $payment->diff($validity);
-        return $interval->format('%a días');
+        return $interval->format('%r%a');
     }
 }

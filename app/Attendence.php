@@ -25,6 +25,6 @@ class Attendence extends Model
     function getHourDateAttribute()
     {
         $hour = new Date(strtotime($this->created_at));
-        return $hour->format('g:i a d/M/y');
+        return $hour->format('g:i a, d/M/y');
     }
 }
