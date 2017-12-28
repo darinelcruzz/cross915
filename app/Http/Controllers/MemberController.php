@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Jenssegers\Date\Date;
+use Illuminate\Support\Facades\Storage;
 use App\Member;
 use App\User;
 use App\Attendence;
@@ -40,7 +41,7 @@ class MemberController extends Controller
             'membership_id' => 'required',
         ]);
 
-        $member = Member::create($request->all());
+        $member = Member::create($request->except(['img']));
 
         User::create([
             'name' => $member->name,
@@ -63,6 +64,17 @@ class MemberController extends Controller
             'visits' => "$membership->visits",
             'validity' => "$validity",
         ]);
+
+        if($request->img) {
+            $file = $request->img;
+            $filename = $member->id;
+            $ext = $file->extension();
+            $file->storeAs('public/members', "$filename.$ext");
+
+            $member->update([
+                'img' => "$filename.$ext"
+            ]);
+        }
 
         return redirect(route('members.index'));
     }
@@ -93,10 +105,23 @@ class MemberController extends Controller
             'comments' => 'sometimes|required',
         ]);
 
-        Member::find($request->id)->update($request->all());
+        $member = Member::find($request->id);
+        $member->update($request->except(['img']));
 
         if ($request->comments) {
-            return redirect(route('members.show', [$request->id]));
+            return redirect(route('members.show', ['id' => $request->id]));
+        }
+
+        if($request->img) {
+            Storage::delete("members/" . $member->img);
+            $file = $request->img;
+            $filename = $member->id;
+            $ext = $file->extension();
+            $file->storeAs('public/members', "$filename.$ext");
+
+            $member->update([
+                'img' => "$filename.$ext"
+            ]);
         }
 
         return redirect(route('members.index'));

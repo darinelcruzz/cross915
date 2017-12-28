@@ -32,6 +32,7 @@ class CreateMembersTable extends Migration
             $table->date('validity')->nullable();
             $table->integer('visits')->default(0);
             $table->string('comments')->nullable();
+            $table->string('img')->nullable();
             $table->integer('status')->default(1);
 
             $table->timestamps();

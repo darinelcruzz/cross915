@@ -4,13 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Date\Date;
+use Illuminate\Support\Facades\Storage;
 
 class Member extends Model
 {
     protected $fillable = [
         'name', 'birthdate', 'gender', 'blood', 'email', 'cellphone', 'comments', 'visits',
         'membership_id', 'registration', 'schedule_id', 'user_id', 'status', 'ingress',
-        'payment', 'validity', 'civil', 'profession', 'address'
+        'payment', 'validity', 'civil', 'profession', 'address', 'img'
     ];
 
     function membership()
@@ -47,5 +48,10 @@ class Member extends Model
         $validity = new Date(strtotime($this->validity));
         $interval = $payment->diff($validity);
         return $interval->format('%r%a');
+    }
+
+    function getImgUrlAttribute()
+    {
+        return Storage::url("members/" . $this->img);
     }
 }

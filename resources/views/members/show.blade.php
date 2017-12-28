@@ -13,7 +13,7 @@
         <div class="col-md-4 col-md-push-8">
             <div class="box box-danger">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="/img/avatar2.png" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ $member->img_url }}" alt="User profile picture">
                     <h3 class="profile-username text-center">{{ $member->name }}</h3>
                     <p class="text-muted text-center">
                         @if ($member->status == 1)
