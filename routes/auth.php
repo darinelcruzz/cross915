@@ -5,3 +5,5 @@ Route::get('logueado', function () {
 });
 
 Route::get('products', usesas('AxiosController', 'products'));
+
+Route::get('descriptions', usesas('AxiosController', 'descriptions'));

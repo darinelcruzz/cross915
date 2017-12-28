@@ -11,4 +11,10 @@ class AxiosController extends Controller
         $products = \App\Product::select('id', 'description', 'public', 'type')->get();
         return $products->keyBy('id');
     }
+
+    function descriptions()
+    {
+        $descriptions = \App\Membership::all();
+        return $descriptions->keyBy('id');
+    }
 }

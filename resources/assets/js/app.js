@@ -35,12 +35,14 @@ Vue.component('modal', require('./components/lte/Modal.vue'));
 Vue.component('modal-button', require('./components/lte/ModalButton.vue'));
 Vue.component('ptable', require('./components/lte/ProductTable.vue'));
 Vue.component('prow', require('./components/lte/ProductRow.vue'));
+Vue.component('membership-details', require('./components/MembershipDetails.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
         sizes: 0,
         image: '',
+        mdescription: '',
     },
     methods: {
         onFileChange(e) {
@@ -62,5 +64,5 @@ const app = new Vue({
         removeImage: function (e) {
           this.image = '';
         }
-  }
+  },
 });

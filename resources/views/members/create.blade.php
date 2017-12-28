@@ -64,10 +64,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 {!! Field::select('membership_id', $memberships, null,
-                                    ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía'], ['icon' => 'id-card-o']) !!}
+                                    ['tpl' => 'templates/withicon', 'empty' => 'Seleccione tipo de membresía', 'v-model' => 'mdescription'],
+                                    ['icon' => 'id-card-o'])
+                                !!}
                             </div>
                             <div class="col-md-6">
-                                Detalles de pago
+                                <strong>Detalles de pago</strong><br>
+                                <membership-details :mid="mdescription"></membership-details>
                             </div>
                         </div>
                     </div>
