@@ -1,4 +1,4 @@
-@extends('root')
+@extends('simple')
 
 @section('htmlheader_title')
     - Asistencia
@@ -48,9 +48,9 @@
         <div class="col-md-7">
             <div class="box box-{{ $color }}">
                 <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="/img/avatar2.png" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ $member->img_url }}" alt="User profile picture">
                     <h3 class="profile-username text-center">Hola, <b>{{ $member->name }}</b></h3>
-                    <h4 class="profile-username text-center">Socio: <b>{{ $member->id }}00</b></h4>
+                    <h4 class="profile-username text-center">Socio: <b>0{{ $member->id }}</b></h4>
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="list-group list-group-unbordered">

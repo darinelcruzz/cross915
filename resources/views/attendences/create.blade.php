@@ -1,4 +1,4 @@
-@extends('root')
+@extends('simple')
 
 @section('htmlheader_title')
     - Asistencia
@@ -32,22 +32,21 @@
         </div>
         <div class="col-md-7">
             <simple-box title="" color="danger">
-                <carousel :items="5">
+                <carousel :items="4">
                     <carousel-item active
-                          img="{{ asset('storage/products/Fama.jpeg') }}"
-                          height="100%">
+                        img="{{ asset('storage/photos/1.jpeg') }}">
                     </carousel-item>
                     <carousel-item
-                        img="{{ asset('img/photo2.png') }}"
-                        height="100%">
+                        img="{{ asset('storage/photos/2.jpeg') }}"
+                        height="10px">
                     </carousel-item>
                     <carousel-item
-                        img="{{ asset('img/photo3.jpg') }}"
-                        height="100%">
+                        img="{{ asset('storage/photos/3.jpeg') }}"
+                        height="10%">
                     </carousel-item>
                     <carousel-item
-                        img="{{ asset('img/photo4.jpg') }}"
-                        height="100%">
+                        img="{{ asset('storage/photos/4.jpeg') }}"
+                        height="10%">
                     </carousel-item>
                 </carousel>
             </simple-box>

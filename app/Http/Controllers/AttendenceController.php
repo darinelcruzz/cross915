@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Attendence;
 use Jenssegers\Date\Date;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Member;
 
 class AttendenceController extends Controller
@@ -53,14 +54,25 @@ class AttendenceController extends Controller
         return view('attendences.show', compact('member', 'members'));
     }
 
-    public function edit(Attendance $attendance)
+    public function edit()
     {
-        //
+        return view('attendences.photos');
     }
 
-    public function update(Request $request, Attendance $attendance)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'photo' => 'required',
+        ]);
+
+        if($request->img) {
+            Storage::delete("photos/" . $request->photo . '.jpeg');
+            $file = $request->img;
+            $filename = $request->photo;
+            $file->storeAs('public/photos', "$filename.jpeg");
+        }
+
+        return redirect(route('attendences.edit'));
     }
 
     public function destroy(Attendance $attendance)

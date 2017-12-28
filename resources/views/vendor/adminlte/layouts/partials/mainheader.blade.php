@@ -19,7 +19,6 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 @if (Auth::guest())
-                    <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
                 @else
                     <!-- User Account Menu -->
@@ -28,6 +27,15 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a href="{{ route('getout') }}" class="btn btn-block">Cerrar sesión</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 @endif
             </ul>

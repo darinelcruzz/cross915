@@ -30,11 +30,6 @@ class AdminController extends Controller
         return view('admin.indexMD', compact('memberships'));
     }
 
-    function store(Request $request)
-    {
-
-    }
-
     function show(Member $member)
     {
 

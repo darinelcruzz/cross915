@@ -172,7 +172,8 @@ return [
         'months'                => 'meses',
         'comments'              => 'comentarios',
         'civil'                 => 'estado civil',
-        'profession'            => 'profesión'
+        'profession'            => 'profesión',
+        'photo'                 => 'foto'
     ],
 
 ];

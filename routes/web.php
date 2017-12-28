@@ -105,8 +105,8 @@ Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
     Route::get('/', usesas($ctrl, 'index'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
-    Route::get('editar/{attendence}', usesas($ctrl, 'edit'));
-    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('fotos', usesas($ctrl, 'edit'));
+    Route::post('fotos', usesas($ctrl, 'update'));
     Route::get('{member}', usesas($ctrl, 'show'));
 });
 
