@@ -31,7 +31,7 @@
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <a href="{{ route('getout') }}" class="btn btn-block">Cerrar sesión</a>
+                                        <a href="{{ route('getout') }}" class="btn btn-block"><i class="fa fa-unlock-alt"></i> Cerrar sesión</a>
                                     </div>
                                 </div>
                             </li>
