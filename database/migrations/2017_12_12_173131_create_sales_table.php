@@ -33,6 +33,8 @@ class CreateSalesTable extends Migration
             $table->integer('q5')->default(0);
             $table->double('a5')->default(0);
             $table->double('total')->default(0);
+            $table->integer('credit')->default(0);
+            $table->integer('status')->default(1);
             $table->date('paid')->nullable();
 
             $table->timestamps();

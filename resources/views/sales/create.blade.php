@@ -20,7 +20,9 @@
                       @endforeach
                     </select>
 
-                    <hr>
+                    {!! Field::select('credit', ['1' => 'Sí', '0' => 'No'], null,
+                        ['label' => '', 'tpl' => 'templates/withicon', 'empty' => '¿A crédito?'], ['icon' => 'credit-card'])
+                    !!}
 
                     <ptable></ptable>
 

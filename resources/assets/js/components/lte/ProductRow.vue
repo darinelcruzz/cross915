@@ -32,7 +32,7 @@
 
         <td align="center">
             <div class="form-group">
-                <input v-model="quantity" @change="updateTotal" class="form-control" type="number" name="quantities[]" min="0" step="0.1"
+                <input v-model="quantity" @change="updateTotal" class="form-control" type="number" name="quantities[]" min="0"
                     style="width:85px;">
             </div>
         </td>

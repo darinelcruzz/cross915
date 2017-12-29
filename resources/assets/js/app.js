@@ -37,6 +37,9 @@ Vue.component('ptable', require('./components/lte/ProductTable.vue'));
 Vue.component('prow', require('./components/lte/ProductRow.vue'));
 Vue.component('membership-details', require('./components/MembershipDetails.vue'));
 
+Vue.component('dropdown', require('./components/lte/DropdownButton.vue'));
+Vue.component('ddi', require('./components/lte/DropdownItem.vue'));
+
 const app = new Vue({
     el: '#app',
     data: {

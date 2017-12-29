@@ -14,3 +14,9 @@ function toMD($text)
 {
     return Markdown::defaultTransform($text);;
 }
+
+function fdate($original_date, $format = 'Y-m-d', $original_format = 'Y-m-d H:i:s')
+{
+    $date = Date::createFromFormat($original_format, $original_date);
+    return $date->format($format);
+}

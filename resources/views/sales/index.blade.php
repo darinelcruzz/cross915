@@ -22,8 +22,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Fecha</th>
+                            <th>Cliente</th>
                             <th>Total</th>
                             <th>Descripción</th>
+                            <th><i class="fa fa-cogs"></i></th>
+                            <th>Estado</th>
                         </tr>
                     </template>
 
@@ -31,17 +34,34 @@
                         @foreach ($sales as $sale)
                             <tr>
                                 <td>{{ $sale->id }}</td>
-                                <td>{{ $sale->created_at }}</td>
-                                <td>{{ $sale->total }}</td>
+                                <td>{{ fdate($sale->created_at, 'l, d \d\e M') }}</td>
                                 <td>
-                                    {{ $sale->q1 }} {{ $sale->p1 }},
-                                    {{ $sale->q2 }} {{ $sale->p2 }},
-                                    {{ $sale->q3 }} {{ $sale->p3 }},
-                                    {{ $sale->q4 }} {{ $sale->p4 }},
-                                    {{ $sale->q5 }} {{ $sale->p5 }}
-                                    <a href="{{ route('sales.edit', ['sale' => $sale->id])}}">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    <a href="{{ route('members.show', ['member' => $sale->client]) }}">
+                                        {{ $sale->client_name }}
                                     </a>
+                                </td>
+                                <td>$ {{ number_format($sale->total, 2) }}</td>
+                                <td>
+                                    @for ($i=1; $i < 6; $i++)
+                                        @if ($sale->{"q$i"})
+                                            {{ $sale->{"q$i"} . " " . $sale->{"product$i"}->description }}
+                                            <br>
+                                        @endif
+                                    @endfor
+                                </td>
+                                <td>
+                                    <dropdown color="danger" icon="cogs">
+                                        @if ($sale->credit)
+                                            <ddi to="{{ route('sales.deposits', ['sale' => $sale->id])}}" icon="usd" text="Abonar"></ddi>
+                                        @endif
+                                        <ddi to="{{ route('sales.edit', ['sale' => $sale->id])}}" icon="pencil" text="Editar"></ddi>
+                                    </dropdown>
+                                </td>
+                                <td>
+                                    <code style="{{ $sale->status ? "color:#04b07b;": ''}}">
+                                        {{ $sale->status_str }}
+                                    </code>
+                                    {{ $sale->credit ? '(C)': '' }}
                                 </td>
                             </tr>
                         @endforeach

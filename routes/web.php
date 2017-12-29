@@ -88,6 +88,12 @@ Route::group(['prefix' => 'ventas', 'as' => 'sales.'], function () {
     Route::get('editar/{sale}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{sale}', usesas($ctrl, 'show'));
+    Route::get('{sale}/pagos', usesas($ctrl, 'deposits'));
+});
+
+Route::group(['prefix' => 'depositos', 'as' => 'deposits.'], function () {
+    $ctrl = 'DepositController';
+    Route::post('crear', usesas($ctrl, 'store'));
 });
 
 Route::group(['prefix' => 'gastos', 'as' => 'expenses.'], function () {

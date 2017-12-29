@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Sale;
 use App\Product;
+use App\Deposit;
 use App\Member;
 use Illuminate\Http\Request;
 
@@ -25,10 +26,17 @@ class SaleController extends Controller
     function store(Request $request)
     {
         $this->validate($request, [
-            'client' => 'required'
+            'client' => 'required',
+            'credit' => 'required'
         ]);
 
-        $sale = Sale::create($request->only(['client', 'total']));
+        $sale = Sale::create([
+            'client' => $request->client,
+            'total' => $request->total,
+            'credit' => $request->credit,
+            'status' => $request->credit == '0'? 1: 0,
+        ]);
+
         $products = $request->products;
         $quantities = $request->quantities;
         $amounts = $request->amounts;
@@ -76,6 +84,15 @@ class SaleController extends Controller
     function update(Request $request, Sale $sale)
     {
         //
+    }
+
+    function deposits(Sale $sale)
+    {
+        if ($sale->pending == 0) {
+            $sale->update(['status' => 1]);
+        }
+        
+        return view('sales.payment', compact('sale'));
     }
 
     function destroy(Sale $sale)
