@@ -43,12 +43,12 @@ class MemberController extends Controller
 
         $member = Member::create($request->except(['img']));
 
-        User::create([
+        /*User::create([
             'name' => $member->name,
             'email' => $member->id,
             'password' => Hash::make($member->birthdate),
             'level' => 3
-        ]);
+        ]);*/
 
         $membership = Membership::find($request->membership_id);
         $validity = new Date(strtotime($member->payment));
