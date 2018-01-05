@@ -12,12 +12,12 @@ class MembersTableSeeder extends Seeder
     public function run()
     {
         factory(App\Member::class, 5)->create()->each(function ($member) {
-            App\User::create([
+            /*App\User::create([
                 'name' => $member->name,
                 'email' => $member->id,
                 'password' => Hash::make($member->birthdate),
                 'level' => 3
-            ]);
+            ]);*/
         });
     }
 }

@@ -103,11 +103,11 @@ return [
         'submenu' => [
             'index' => [
                 'title' => 'Listado',
-                'route' => 'home'
+                'route' => 'users.index'
             ],
             'create' => [
                 'title' => 'Crear',
-                'route' => 'home'
+                'route' => 'users.create'
             ],
         ]
     ],

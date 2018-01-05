@@ -21,6 +21,17 @@ Route::get('correos', function () {
     return new App\Mail\MarkdownMail;
 });
 
+Route::group(['prefix' => 'usuarios', 'as' => 'users.'], function () {
+    $ctrl = 'UserController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{user}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{user}', usesas($ctrl, 'show'));
+    Route::get('cancelar/{user}', usesas($ctrl, 'destroy'));
+});
+
 Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
     $ctrl = 'MemberController';
     Route::get('/', usesas($ctrl, 'index'));

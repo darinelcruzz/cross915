@@ -126,6 +126,7 @@ return [
         'first_name'            => 'nombre',
         'last_name'             => 'apellido',
         'password'              => 'contraseña',
+        'password2'             => 'repetir contraseña',
         'password_confirmation' => 'confirmación de la contraseña',
         'city'                  => 'ciudad',
         'country'               => 'país',
@@ -173,7 +174,9 @@ return [
         'comments'              => 'comentarios',
         'civil'                 => 'estado civil',
         'profession'            => 'profesión',
-        'photo'                 => 'foto'
+        'photo'                 => 'foto',
+        'level'                 => 'nivel'
+
     ],
 
 ];

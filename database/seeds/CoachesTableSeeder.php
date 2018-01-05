@@ -11,13 +11,13 @@ class CoachesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Coach::class, 5)->create()->each(function ($coach) {
-            App\User::create([
+        factory(App\Coach::class, 1)->create()->each(function ($coach) {
+            /*App\User::create([
                 'name' => $coach->name,
                 'email' => $coach->username,
                 'password' => Hash::make($coach->birthdate),
                 'level' => 2
-            ]);
+            ]);*/
         });
     }
 }
