@@ -25,8 +25,8 @@ class MemberController extends Controller
     {
         $date = Date::now()->format('Y-m-d');
         $memberships = Membership::where('status','1')->pluck('name', 'id')->toArray();
-        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00', '17:00' => '17:00',
-            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00'];
+        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00','16:00' => '16:00', '17:00' => '17:00',
+            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00', '21:00' => '21:00', 'indefinido' => 'indefinido'];
         return view('members.create', compact('memberships', 'schedules', 'date'));
     }
 
@@ -89,8 +89,8 @@ class MemberController extends Controller
     function edit(Member $member)
     {
         $memberships = Membership::where('status','1')->pluck('name', 'id')->toArray();
-        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00', '17:00' => '17:00',
-            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00'];
+        $schedules = ['07:00' => '07:00', '08:00' => '08:00', '09:00' => '09:00','16:00' => '16:00', '17:00' => '17:00',
+            '18:00' => '18:00', '19:00' => '19:00', '20:00' => '20:00', '21:00' => '21:00', 'indefinido' => 'indefinido'];
         return view('members.edit', compact('member', 'memberships', 'schedules'));
     }
 
