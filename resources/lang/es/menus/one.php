@@ -60,6 +60,10 @@ return [
                 'title' => 'Membresias y descuentos',
                 'route' => 'admin.indexMD'
             ],
+            'photos' => [
+                'title' => 'Fotos tablet',
+                'route' => 'attendences.edit'
+            ],
         ]
     ],
 
@@ -112,11 +116,11 @@ return [
         ]
     ],
 
-    'attendence' => [
+    /*'attendence' => [
         'title' => 'Asistencia',
         'icon' => 'fa fa-check-square-o',
         'route' => 'attendences.create'
-    ],
+    ],*/
 
     'logout' => [
         'title' => 'Salir',

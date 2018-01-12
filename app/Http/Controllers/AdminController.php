@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Jenssegers\Date\Date;
 use Illuminate\Http\Request;
-use App\Sales;
+use App\Sale;
 use App\Member;
 use App\Membership;
 use App\Discount;
+use App\Deposit;
 use App\Payment;
 
 class AdminController extends Controller
@@ -19,9 +20,21 @@ class AdminController extends Controller
         $fdate = $fdate->format('l, j F Y');
 
         $payments = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
-        $sum = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
+        $sumP = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
 
-        return view('admin.balance', compact('date', 'fdate', 'payments', 'sum'));
+        $sales = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '0')->get();
+        $sumS = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '0')->sum('total');
+
+        $salesC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '1')->get();
+        $sumSC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '1')->sum('total');
+
+        $deposits = Deposit::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
+        $sumD = Deposit::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
+
+        $sumA= $sumP + $sumS + $sumSC + $sumD;
+        $sum= $sumP + $sumS + $sumD;
+
+        return view('admin.balance', compact('date', 'fdate', 'payments', 'sumP', 'sales', 'sumS', 'salesC', 'sumSC','deposits', 'sumD', 'sumA', 'sum'));
     }
 
     function indexMD()

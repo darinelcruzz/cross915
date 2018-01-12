@@ -44,6 +44,7 @@ class PaymentController extends Controller
         $member->update([
             'visits' => $membership->visits,
             'payment' => $payment->date_start,
+            'membership_id' => $payment->membership_id,
             'validity' => $validity,
         ]);
 

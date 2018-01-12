@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $payment->id }}</td>
                                 <td>{{ $payment->date }}</td>
-                                <td>{{ $payment->member->name }}</td>
+                                <td><a href="{{ route('members.show', ['id' => $payment->member->id])}}">{{ $payment->member->name }}</a></td>
                                 <td>{{ $payment->membership->name }}</td>
                                 <td>{{ $payment->discount->name or 'Sin descuento' }}</td>
                                 <td>${{ $payment->amount }}.00</td>
