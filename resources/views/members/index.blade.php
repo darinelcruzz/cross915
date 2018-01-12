@@ -1,7 +1,7 @@
 @extends('root')
 
 @section('htmlheader_title')
-    - Miembros
+    - Pagos
 @endsection
 
 @section('content-header')

@@ -12,7 +12,10 @@ class CoachModuleTest extends TestCase
     /** @test */
     function loads_the_list_of_coaches()
     {
-        $this->get(route('coaches.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('coaches.index'))
             ->assertViewIs('coaches.index')
             ->assertStatus(200)
             ->assertSee('Entrenadores');
@@ -21,7 +24,10 @@ class CoachModuleTest extends TestCase
     /** @test */
     function creates_a_coach()
     {
-        $this->get(route('coaches.create'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('coaches.create'))
             ->assertViewIs('coaches.create')
             ->assertStatus(200)
             ->assertSee('Crear entrenador');
@@ -30,9 +36,11 @@ class CoachModuleTest extends TestCase
     /** @test */
     function edits_a_coach()
     {
+        $user = factory(\App\User::class)->create();
         $coach = factory(\App\Coach::class)->create();
 
-        $this->get(route('coaches.edit', ['coach' => $coach->id]))
+        $this->actingAs($user)
+            ->get(route('coaches.edit', ['coach' => $coach->id]))
             ->assertViewIs('coaches.edit')
             ->assertStatus(200)
             ->assertSee('Editar entrenador');

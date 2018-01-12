@@ -17,4 +17,10 @@ class AxiosController extends Controller
         $descriptions = \App\Membership::all();
         return $descriptions->keyBy('id');
     }
+
+    function discounts()
+    {
+        $descriptions = \App\Discount::all();
+        return $descriptions->keyBy('id');
+    }
 }

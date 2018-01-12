@@ -152,6 +152,7 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'membership_id'         => 'membresía',
+        'member_id'             => 'membresía',
         'schedule_id'           => 'horario',
         'birthdate'             => 'fecha de nacimiento',
         'code'                  =>  'código',
@@ -175,7 +176,9 @@ return [
         'civil'                 => 'estado civil',
         'profession'            => 'profesión',
         'photo'                 => 'foto',
-        'level'                 => 'nivel'
+        'level'                 => 'nivel',
+        'discount_id'           => 'descuento',
+        'date_start'            => 'a partir de'
 
     ],
 

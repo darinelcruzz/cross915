@@ -12,7 +12,10 @@ class AttendenceModuleTest extends TestCase
     /** @test */
     function loads_the_list_of_attendences()
     {
-        $this->get(route('attendences.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('attendences.index'))
             ->assertViewIs('attendences.index')
             ->assertStatus(200)
             ->assertSee('Buscar')
@@ -38,6 +41,17 @@ class AttendenceModuleTest extends TestCase
             ->assertViewIs('attendences.show')
             ->assertStatus(200)
             ->assertSee('Te quedan:');
+    }
+
+    function edit_photos()
+    {
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('attendences.edit'))
+            ->assertViewIs('attendences.edit')
+            ->assertStatus(200)
+            ->assertSee('Fotos en tablet');
     }
 
 }

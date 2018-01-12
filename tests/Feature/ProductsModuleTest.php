@@ -12,7 +12,10 @@ class ProductsModuleTest extends TestCase
     /** @test */
     function loads_the_products_list()
     {
-        $this->get(route('products.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('products.index'))
             ->assertViewIs('products.index')
             ->assertStatus(200)
             ->assertSee('Lista de productos');
@@ -21,7 +24,10 @@ class ProductsModuleTest extends TestCase
     /** @test */
     function creates_a_product()
     {
-        $this->get(route('products.create'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('products.create'))
             ->assertViewIs('products.create')
             ->assertStatus(200)
             ->assertSee('Crear producto');
@@ -31,8 +37,10 @@ class ProductsModuleTest extends TestCase
     function edits_a_product()
     {
         $product = factory(\App\Product::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('products.edit', ['product' => $product->id]))
+        $this->actingAs($user)
+            ->get(route('products.edit', ['product' => $product->id]))
             ->assertViewIs('products.edit')
             ->assertStatus(200)
             ->assertSee('Editar producto');

@@ -89,7 +89,7 @@
                     </div>
                     <hr>
                     <input type="hidden" name="payment" value="{{ $date }}">
-                    {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
+                    {!! Form::submit('Agregar y cobrar', ['class' => 'btn btn-danger btn-block']) !!}
                 {!! Form::close() !!}
             </simple-box>
         </div>

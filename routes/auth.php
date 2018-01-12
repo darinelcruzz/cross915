@@ -7,6 +7,7 @@ Route::get('logueado', function () {
 Route::get('products', usesas('AxiosController', 'products'));
 
 Route::get('descriptions', usesas('AxiosController', 'descriptions'));
+Route::get('discounts', usesas('AxiosController', 'discounts'));
 
 Route::get('/', function () {
     return view('home');
@@ -110,7 +111,7 @@ Route::group(['prefix' => 'ventas', 'as' => 'sales.'], function () {
     Route::get('{sale}/pagos', usesas($ctrl, 'deposits'));
 });
 
-Route::group(['prefix' => 'depositos', 'as' => 'deposits.'], function () {
+Route::group(['prefix' => 'abonos', 'as' => 'deposits.'], function () {
     $ctrl = 'DepositController';
     Route::post('crear', usesas($ctrl, 'store'));
 });
@@ -125,14 +126,21 @@ Route::group(['prefix' => 'gastos', 'as' => 'expenses.'], function () {
     Route::get('{expense}', usesas($ctrl, 'show'));
 });
 
-Route::group(['prefix' => 'asistencia', 'as' => 'attendences.'], function () {
-    $ctrl = 'AttendenceController';
-    //Route::get('fotos', usesas($ctrl, 'edit'));
-    //Route::post('fotos', usesas($ctrl, 'update'));
+Route::group(['prefix' => 'pagos', 'as' => 'payments.'], function () {
+    $ctrl = 'PaymentController';
     Route::get('/', usesas($ctrl, 'index'));
-    //Route::get('crear', usesas($ctrl, 'create'));
-    //Route::post('crear', usesas($ctrl, 'store'));
-    //Route::get('{member}', usesas($ctrl, 'show'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{payment}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{payment}', usesas($ctrl, 'show'));
+});
+
+Route::group(['prefix' => 'asistencias', 'as' => 'attendences.'], function () {
+    $ctrl = 'AttendenceController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('fotos', usesas($ctrl, 'edit'));
+    Route::post('fotos', usesas($ctrl, 'update'));
 });
 
 Route::group(['prefix' => 'membresias', 'as' => 'memberships.'], function () {
@@ -144,6 +152,17 @@ Route::group(['prefix' => 'membresias', 'as' => 'memberships.'], function () {
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{membership}', usesas($ctrl, 'show'));
     Route::get('cancelar/{membership}', usesas($ctrl, 'destroy'));
+});
+
+Route::group(['prefix' => 'descuentos', 'as' => 'discounts.'], function () {
+    $ctrl = 'DiscountController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+    Route::get('editar/{discount}', usesas($ctrl, 'edit'));
+    Route::post('editar', usesas($ctrl, 'update'));
+    Route::get('{discount}', usesas($ctrl, 'show'));
+    Route::get('cancelar/{discount}', usesas($ctrl, 'destroy'));
 });
 
 Route::group(['prefix' => 'administracion', 'as' => 'admin.'], function () {

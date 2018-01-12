@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Sales;
 use App\Member;
 use App\Membership;
+use App\Discount;
 use App\Payment;
 
 class AdminController extends Controller
@@ -26,8 +27,9 @@ class AdminController extends Controller
     function indexMD()
     {
         $memberships = Membership::all();
+        $discounts = Discount::all();
 
-        return view('admin.indexMD', compact('memberships'));
+        return view('admin.indexMD', compact('memberships', 'discounts'));
     }
 
     function show(Member $member)

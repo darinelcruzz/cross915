@@ -12,7 +12,10 @@ class TrainingModuleTest extends TestCase
     /** @test */
     function loads_the_trainings_list()
     {
-        $this->get(route('trainings.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('trainings.index'))
             ->assertViewIs('trainings.index')
             ->assertStatus(200)
             ->assertSee('Clases');
@@ -21,7 +24,10 @@ class TrainingModuleTest extends TestCase
     /** @test */
     function creates_a_training()
     {
-        $this->get(route('trainings.create'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('trainings.create'))
             ->assertViewIs('trainings.create')
             ->assertStatus(200)
             ->assertSee('Crear clase');
@@ -35,8 +41,10 @@ class TrainingModuleTest extends TestCase
             'workout_id' => 1,
             'color' => 'danger'
         ]);
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('trainings.edit', ['training' => $training->id]))
+        $this->actingAs($user)
+            ->get(route('trainings.edit', ['training' => $training->id]))
             ->assertViewIs('trainings.edit')
             ->assertStatus(200)
             ->assertSee('Editar clase');

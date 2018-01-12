@@ -7,8 +7,8 @@ return [
         'icon' => 'fa fa-id-card-o',
         'submenu' => [
             'deposits' => [
-                'title' => 'Pago',
-                'route' => 'home'
+                'title' => 'Pagos',
+                'route' => 'payments.index'
             ],
             'index' => [
                 'title' => 'Lista',

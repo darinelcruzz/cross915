@@ -12,7 +12,10 @@ class SalesModuleTest extends TestCase
     /** @test */
     function loads_the_sales_list()
     {
-        $this->get(route('sales.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('sales.index'))
             ->assertViewIs('sales.index')
             ->assertStatus(200)
             ->assertSee('Lista de ventas');
@@ -21,9 +24,12 @@ class SalesModuleTest extends TestCase
     /** @test */
     function creates_a_sale()
     {
-        $this->get(route('sales.create'))
-            ->assertViewIs('sales.create')
+        $user = factory(\App\User::class)->create();
 
+        $this->actingAs($user)
+            ->get(route('sales.create'))
+            ->assertViewIs('sales.create')
+            ->assertStatus(200)
             ->assertSee('Crear venta');
     }
 
@@ -36,16 +42,18 @@ class SalesModuleTest extends TestCase
             ->assertViewIs('sales.edit')
             ->assertStatus(200)
             ->assertSee('Editar venta');
-    }
+    }*/
 
-    /** @test
-    function shows_a_sale()
+    /** @test */
+    function deposit_a_sale()
     {
         $sale = factory(\App\Sale::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('sales.show', ['sale' => $sale->id]))
-            ->assertViewIs('sales.show')
+        $this->actingAs($user)
+            ->get(route('sales.deposits', ['sale' => $sale->id]))
+            ->assertViewIs('sales.payment')
             ->assertStatus(200)
-            ->assertSee('Detalles venta');
-    }*/
+            ->assertSee('Abonos');
+    }
 }

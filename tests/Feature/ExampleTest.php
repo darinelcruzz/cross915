@@ -8,18 +8,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     function loads_home_page()
     {
-        $this->get('/')
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get('/')
             ->assertStatus(200);
     }
 
     /** @test */
     function loads_tests_page()
     {
-        $this->get('/tests')
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get('/tests')
             ->assertStatus(200);
     }
 }

@@ -12,7 +12,10 @@ class MembersModuleTest extends TestCase
     /** @test */
     function loads_the_members_list()
     {
-        $this->get(route('members.index'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('members.index'))
             ->assertViewIs('members.index')
             ->assertStatus(200)
             ->assertSee('Lista de miembros');
@@ -21,7 +24,10 @@ class MembersModuleTest extends TestCase
     /** @test */
     function creates_a_member()
     {
-        $this->get(route('members.create'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('members.create'))
             ->assertViewIs('members.create')
             ->assertStatus(200)
             ->assertSee('Crear miembro');
@@ -31,8 +37,10 @@ class MembersModuleTest extends TestCase
     function edits_a_member ()
     {
         $member = factory(\App\Member::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('members.edit', ['member' => $member->id]))
+        $this->actingAs($user)
+            ->get(route('members.edit', ['member' => $member->id]))
             ->assertViewIs('members.edit')
             ->assertStatus(200)
             ->assertSee('Editar miembro');
@@ -43,8 +51,10 @@ class MembersModuleTest extends TestCase
     {
         //$membership = factory(\App\Membership::class)->create();
         $member = factory(\App\Member::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('members.show', ['member' => $member->id]))
+        $this->actingAs($user)
+            ->get(route('members.show', ['member' => $member->id]))
             //->assertViewIs('members.show')
             //->assertStatus(200)
             ->assertSee('Detalles miembro')

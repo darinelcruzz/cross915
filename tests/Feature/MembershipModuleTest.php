@@ -12,7 +12,10 @@ class MembershipModuleTest extends TestCase
     /** @test */
     function creates_a_membership()
     {
-        $this->get(route('memberships.create'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('memberships.create'))
             ->assertViewIs('memberships.create')
             ->assertStatus(200)
             ->assertSee('Crear membresía');
@@ -22,8 +25,10 @@ class MembershipModuleTest extends TestCase
     function edits_a_membership()
     {
         $membership = factory(\App\Membership::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        $this->get(route('memberships.edit', ['membership' => $membership->id]))
+        $this->actingAs($user)
+            ->get(route('memberships.edit', ['membership' => $membership->id]))
             ->assertViewIs('memberships.edit')
             ->assertStatus(200)
             ->assertSee('Editar membresía');

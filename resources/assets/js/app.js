@@ -36,6 +36,7 @@ Vue.component('modal-button', require('./components/lte/ModalButton.vue'));
 Vue.component('ptable', require('./components/lte/ProductTable.vue'));
 Vue.component('prow', require('./components/lte/ProductRow.vue'));
 Vue.component('membership-details', require('./components/MembershipDetails.vue'));
+Vue.component('discount-details', require('./components/DiscountDetails.vue'));
 
 Vue.component('dropdown', require('./components/lte/DropdownButton.vue'));
 Vue.component('ddi', require('./components/lte/DropdownItem.vue'));
@@ -46,6 +47,7 @@ const app = new Vue({
         sizes: 0,
         image: '',
         mdescription: '',
+        discount: '',
     },
     methods: {
         onFileChange(e) {

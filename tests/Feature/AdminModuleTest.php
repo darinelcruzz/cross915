@@ -12,7 +12,10 @@ class AdminModuleTest extends TestCase
     /** @test */
     function loads_cash_view()
     {
-        $this->get(route('admin.cash'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('admin.cash'))
             ->assertViewIs('admin.balance')
             ->assertStatus(200)
             ->assertSee('Buscar')
@@ -22,7 +25,10 @@ class AdminModuleTest extends TestCase
     /** @test */
     function loads_the_memberships_and_discounts_list()
     {
-        $this->get(route('admin.indexMD'))
+        $user = factory(\App\User::class)->create();
+
+        $this->actingAs($user)
+            ->get(route('admin.indexMD'))
             ->assertViewIs('admin.indexMD')
             ->assertStatus(200)
             ->assertSee('Lista de membresías')

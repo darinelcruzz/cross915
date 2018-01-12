@@ -72,6 +72,6 @@ class MembershipController extends Controller
             'status' => 0
         ]);
 
-        return redirect(route('memberships.index'));
+        return redirect(route('admin.indexMD'));
     }
 }

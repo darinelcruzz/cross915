@@ -57,7 +57,8 @@ class MemberController extends Controller
         Payment::create([
             'member_id' => $member->id,
             'membership_id' => $member->membership_id,
-            'amount' => "$membership->amount",
+            'amount' => $membership->amount,
+            'date_start' => $validity,
         ]);
 
         $member->update([

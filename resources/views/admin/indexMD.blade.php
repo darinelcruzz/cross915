@@ -16,8 +16,8 @@
             </a>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6"  align="center">
-            <a href="{{ route('memberships.create') }}" class="btn btn-app">
-                <i class="fa fa-plus"></i> Agregar descuentos
+            <a href="{{ route('discounts.create') }}" class="btn btn-app">
+                <i class="fa fa-plus"></i> Agregar descuento
             </a>
         </div>
     </div>
@@ -77,13 +77,36 @@
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Monto</th>
-                            <th>Tipo</th>
                             <th>Estado</th>
                             <th></th>
                         </tr>
                     </template>
                     <template slot="body">
-
+                        @foreach ($discounts as $discount)
+                            <tr>
+                                <td>{{ $discount->id }}</td>
+                                <td>{{ $discount->name }}</td>
+                                <td>{{ $discount->description }}</td>
+                                <td>{{ $discount->type == 1 ? '$' . $discount->amount . '.00' : $discount->amount . '%' }}</td>
+                                <td>
+                                    @if ($discount->status == 1)
+                                        <span class="label label-success">Activa</span>
+                                    @else
+                                        <span class="label label-danger">Cancelada</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('discounts.edit', ['discount' => $discount->id])}}">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>
+                                    @if ($discount->status == 1)
+                                        <a href="{{ route('discounts.destroy', ['discount' => $discount->id])}}">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </template>
                 </data-table>
             </solid-box>
