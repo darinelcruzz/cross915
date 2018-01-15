@@ -16,11 +16,12 @@
                     <div class="col-md-12">
                         <div class="row">
                             {!! Field::select('member_id', $members, null,
-                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un miembro'], ['icon' => 'user-o']) !!}
+                                ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un miembro', 'v-model' => 'member_id'],
+                                ['icon' => 'user-o']) !!}
                         </div>
-                        <hr>
-                            <h4>Pago anterior:</h4>
-                        <hr>
+                        <div class="row">
+                            <last-payment :member="member_id"></last-payment>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 {!! Field::select('membership_id', $memberships, null,
@@ -42,6 +43,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 {!! Field::date('date_start', $date,['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
+                            </div>
+                            <div class="col-md-6">
+                                <total-to-pay :membership="mdescription" :discount="discount"></total-to-pay>
                             </div>
                         </div>
                         <hr>

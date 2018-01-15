@@ -37,6 +37,8 @@ Vue.component('ptable', require('./components/lte/ProductTable.vue'));
 Vue.component('prow', require('./components/lte/ProductRow.vue'));
 Vue.component('membership-details', require('./components/MembershipDetails.vue'));
 Vue.component('discount-details', require('./components/DiscountDetails.vue'));
+Vue.component('last-payment', require('./components/LastPayment.vue'));
+Vue.component('total-to-pay', require('./components/TotalToPay.vue'));
 
 Vue.component('dropdown', require('./components/lte/DropdownButton.vue'));
 Vue.component('ddi', require('./components/lte/DropdownItem.vue'));
@@ -47,6 +49,7 @@ const app = new Vue({
         sizes: 0,
         image: '',
         mdescription: '',
+        member_id: '',
         discount: '',
     },
     methods: {

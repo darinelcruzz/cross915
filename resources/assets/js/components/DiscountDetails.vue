@@ -1,7 +1,7 @@
 <template lang="html">
     <div>
         {{ discount[mid].description }}<br>
-        <h3 class="pull-right"><strong>$ 0.00</strong></h3>
+        <h3 class="pull-right"><strong>$ {{ discount[mid].amount }}.00</strong></h3>
     </div>
 </template>
 

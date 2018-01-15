@@ -6,8 +6,9 @@ Route::get('logueado', function () {
 
 Route::get('products', usesas('AxiosController', 'products'));
 
-Route::get('descriptions', usesas('AxiosController', 'descriptions'));
+Route::get('memberships', usesas('AxiosController', 'memberships'));
 Route::get('discounts', usesas('AxiosController', 'discounts'));
+Route::get('payments', usesas('AxiosController', 'payments'));
 
 Route::get('/', function () {
     return view('home');

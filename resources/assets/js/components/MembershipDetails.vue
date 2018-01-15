@@ -1,9 +1,9 @@
 <template lang="html">
     <div>
-        {{ descriptions[mid].description }}<br>
-        Visitas: {{ descriptions[mid].visits > 0 ? descriptions[mid].visits: ' Ilimitadas'}}<br>
-        Meses: {{ descriptions[mid].months }}
-        <h3 class="pull-right"><strong>$ {{ descriptions[mid].amount }}.00</strong></h3>
+        {{ memberships[mid].description }}<br>
+        Visitas: {{ memberships[mid].visits > 0 ? memberships[mid].visits: ' Ilimitadas'}}<br>
+        Meses: {{ memberships[mid].months }}
+        <h3 class="pull-right"><strong>$ {{ memberships[mid].amount }}.00</strong></h3>
     </div>
 </template>
 
@@ -12,16 +12,13 @@ export default {
     props: ['mid'],
     data() {
         return {
-            descriptions: []
+            memberships: []
         };
     },
     created() {
-        axios.get('/descriptions').then(response => {
-            this.descriptions = response.data;
+        axios.get('/memberships').then(response => {
+            this.memberships = response.data;
         });
     }
 }
 </script>
-
-<style lang="css">
-</style>

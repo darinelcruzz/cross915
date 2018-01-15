@@ -12,7 +12,7 @@ class AxiosController extends Controller
         return $products->keyBy('id');
     }
 
-    function descriptions()
+    function memberships()
     {
         $descriptions = \App\Membership::all();
         return $descriptions->keyBy('id');
@@ -22,5 +22,13 @@ class AxiosController extends Controller
     {
         $descriptions = \App\Discount::all();
         return $descriptions->keyBy('id');
+    }
+
+    function payments()
+    {
+        $payments = \App\Payment::orderBy('created_at', 'desc')
+            ->get();
+
+        return $payments->keyBy('member_id');
     }
 }
