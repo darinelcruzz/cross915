@@ -21,6 +21,13 @@ class MemberController extends Controller
         return view('members.index', compact('membersA', 'membersC'));
     }
 
+    function expired()
+    {
+        $date = Date::now()->format('Y-m-d');
+        $members = Member::where('status','1')->where('validity', '<', $date)->get();
+        return view('members.expired', compact('members'));
+    }
+
     function create()
     {
         $date = Date::now()->format('Y-m-d');

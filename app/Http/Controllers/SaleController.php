@@ -16,6 +16,12 @@ class SaleController extends Controller
         return view('sales.index', compact('sales'));
     }
 
+    function pending()
+    {
+        $sales = Sale::where('status', 0)->get();
+        return view('sales.pending', compact('sales'));
+    }
+
     function create()
     {
         $products = Product::all();
@@ -91,7 +97,7 @@ class SaleController extends Controller
         if ($sale->pending == 0) {
             $sale->update(['status' => 1]);
         }
-        
+
         return view('sales.payment', compact('sale'));
     }
 

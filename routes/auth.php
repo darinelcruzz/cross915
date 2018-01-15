@@ -45,6 +45,7 @@ Route::group(['prefix' => 'usuarios', 'as' => 'users.'], function () {
 Route::group(['prefix' => 'miembros', 'as' => 'members.'], function () {
     $ctrl = 'MemberController';
     Route::get('/', usesas($ctrl, 'index'));
+    Route::get('vencidas', usesas($ctrl, 'expired'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{member}', usesas($ctrl, 'edit'));
@@ -104,6 +105,7 @@ Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
 Route::group(['prefix' => 'ventas', 'as' => 'sales.'], function () {
     $ctrl = 'SaleController';
     Route::get('/', usesas($ctrl, 'index'));
+    Route::get('creditos', usesas($ctrl, 'pending'));
     Route::get('crear', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{sale}', usesas($ctrl, 'edit'));

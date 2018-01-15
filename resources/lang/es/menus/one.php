@@ -14,6 +14,10 @@ return [
                 'title' => 'Lista',
                 'route' => 'members.index'
             ],
+            'expired' => [
+                'title' => 'Vencidas',
+                'route' => 'members.expired'
+            ],
             'create' => [
                 'title' => 'Agregar',
                 'route' => 'members.create'
@@ -30,12 +34,12 @@ return [
         'icon' => 'fa fa-shopping-bag',
         'submenu' => [
             'sales' => [
-                'title' => 'Venta',
+                'title' => 'Ventas',
                 'route' => 'sales.index'
             ],
             'credit' => [
                 'title' => 'Crédito',
-                'route' => 'home'
+                'route' => 'sales.pending'
             ],
             'index' => [
                 'title' => 'Productos',
