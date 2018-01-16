@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             {!! Field::select('type',
-                                    ['0' => 'Porcentaje', '1' => 'Monto'], null,
+                                    ['1' => 'Monto'], null,
                                     ['empty' => 'Seleccione el tipo de descuento', 'tpl' => 'templates/withicon'], ['icon' => 'tint'])!!}
                         </div>
                         <div class="col-md-6">

@@ -14,13 +14,14 @@
             <simple-box title="Crear pago" color="danger">
                 {!! Form::open(['method' => 'POST', 'route' => 'payments.store']) !!}
                     <div class="col-md-12">
-                        <div class="row">
-                            {!! Field::select('member_id', $members, null,
+                        <!--div class="row">
+                            { !! Field::select('member_id', $members, null,
                                 ['tpl' => 'templates/withicon', 'empty' => 'Seleccione un miembro', 'v-model' => 'member_id'],
                                 ['icon' => 'user-o']) !!}
-                        </div>
+                        </div-->
                         <div class="row">
-                            <last-payment :member="member_id"></last-payment>
+                            <last-payment :member="{{ $member }}"></last-payment>
+                            <input type="hidden" name="member_id" value="{{ $member }}">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -44,7 +45,8 @@
                             <div class="col-md-6">
                                 {!! Field::date('date_start', $date,['tpl' => 'templates/withicon'], ['icon' => 'calendar']) !!}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6"><br>
+                                <b class="pull-left">TOTAL:</b>
                                 <total-to-pay :membership="mdescription" :discount="discount"></total-to-pay>
                             </div>
                         </div>

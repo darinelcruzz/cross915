@@ -20,7 +20,7 @@
                         <tr>
                             <td>{{ memberships[payments[member].membership_id].name }}</td>
                             <td>$ {{ payments[member].amount }}.00</td>
-                            <td>{{ discounts[payments[member].discount_id].name }} ($ {{ discounts[payments[member].discount_id].amount }}.00)</td>
+                            <td>{{ payments[member].discount_id ? discounts[payments[member].discount_id].name : 'N/A' }} ($ {{  payments[member].discount_id ? discounts[payments[member].discount_id].amount: '0' }}.00)</td>
                             <td>{{ payments[member].date_start }}</td>
                         </tr>
                     </tbody>

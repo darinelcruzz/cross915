@@ -18,13 +18,13 @@ class PaymentController extends Controller
         return view('payments.index', compact('payments'));
     }
 
-    public function create()
+    public function create($member)
     {
         $members = Member::pluck('name', 'id')->toArray();
         $discounts = Discount::where('status', '1')->pluck('name', 'id')->toArray();
         $memberships = Membership::where('status', '1')->pluck('name', 'id')->toArray();
         $date = Date::now()->format('Y-m-d');
-        return view('payments.create', compact('members', 'memberships', 'discounts','date'));
+        return view('payments.create', compact('members', 'memberships', 'discounts','date', 'member'));
     }
 
     public function store(Request $request)

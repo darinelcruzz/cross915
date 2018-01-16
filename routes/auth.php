@@ -132,7 +132,7 @@ Route::group(['prefix' => 'gastos', 'as' => 'expenses.'], function () {
 Route::group(['prefix' => 'pagos', 'as' => 'payments.'], function () {
     $ctrl = 'PaymentController';
     Route::get('/', usesas($ctrl, 'index'));
-    Route::get('crear', usesas($ctrl, 'create'));
+    Route::get('crear/{member}', usesas($ctrl, 'create'));
     Route::post('crear', usesas($ctrl, 'store'));
     Route::get('editar/{payment}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));

@@ -10,12 +10,12 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-2 col-md-push-10"  align="center">
-            <a href="{{ route('payments.create') }}" class="btn btn-app">
+        <!--div class="col-md-2 col-md-push-10"  align="center">
+            <a href="{ { route('payments.create') }}" class="btn btn-app">
                 <i class="fa fa-plus"></i> Agregar pago
             </a>
-        </div>
-        <div class="col-md-10 col-md-pull-2">
+        </div-->
+        <div class="col-md-10">
             <solid-box color="danger" title="Lista de pagos">
                 <data-table example="Desc">
                     <template slot="header">

@@ -18,21 +18,36 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Contacto</th>
+                            <th><i class="fa fa-cogs"></i></th>
                             <th>Datos</th>
-                            <th>Menbrecia</th>
-                            <th></th>
+                            <th>Membresía</th>
                         </tr>
                     </template>
 
                     <template slot="body">
                         @foreach ($membersA as $member)
                             <tr>
-                                <td>{{ $member->id }}</td>
-                                <td><a href="{{ route('members.show', ['id' => $member->id])}}">{{ $member->name }}</a></td>
+                                <td>
+                                  {{ $member->id }}
+                                </td>
+                                <td>
+                                  <a href="{{ route('members.show', ['id' => $member->id])}}">{{ $member->name }}</a>
+                                  <span class="label label-success pull-right">A</span><br>
+                                </td>
                                 <td>
                                     {{ $member->email }} <br>
                                     {{ $member->cellphone }} <br>
                                     {{ $member->address }}
+                                </td>
+                                <td>
+                                    <dropdown color="danger" icon="cogs">
+                                        <ddi to="{{ route('payments.create', ['member' => $member->id]) }}"
+                                            icon="usd" text="Agregar pago"></ddi>
+                                        <ddi to="{{ route('members.edit', ['member' => $member->id]) }}"
+                                            icon="pencil-square-o" text="Editar"></ddi>
+                                        <ddi to="{{ route('members.destroy', ['member' => $member->id]) }}"
+                                          icon="times" text="Desactivar"></ddi>
+                                    </dropdown>
                                 </td>
                                 <td>
                                     <i class="fa fa-birthday-cake"></i>&nbsp;&nbsp;&nbsp;{{ $member->birthday }} <br>
@@ -43,15 +58,6 @@
                                     <i class="fa fa-id-card-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->membership->name }} <br>
                                     <b>Próx. pago:</b> {{ $member->getShortDate('validity') }} <br>
                                     <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->schedule_id }} <br>
-                                </td>
-                                <td>
-                                    <span class="label label-success">A</span><br>
-                                    <a href="{{ route('members.destroy', ['member' => $member->id])}}">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </a><br>
-                                    <a href="{{ route('members.edit', ['member' => $member->id])}}">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -67,7 +73,7 @@
                             <th>Nombre</th>
                             <th>Contacto</th>
                             <th>Datos</th>
-                            <th>Menbrecia</th>
+                            <th>Membresía</th>
                             <th></th>
                         </tr>
                     </template>
@@ -75,7 +81,10 @@
                         @foreach ($membersC as $member)
                             <tr>
                                 <td>{{ $member->id }}</td>
-                                <td><a href="{{ route('members.show', ['id' => $member->id])}}">{{ $member->name }}</a></td>
+                                <td>
+                                    <a href="{{ route('members.show', ['id' => $member->id])}}">{{ $member->name }}</a>
+                                    <span class="label label-danger pull-right">A</span><br>
+                                </td>
                                 <td>
                                     {{ $member->email }} <br>
                                     {{ $member->cellphone }} <br>
@@ -92,7 +101,6 @@
                                     <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{ $member->schedule_id }} <br>
                                 </td>
                                 <td>
-                                    <span class="label label-danger">C</span><br>
                                     <a href="{{ route('members.edit', ['member' => $member->id])}}">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </a>
