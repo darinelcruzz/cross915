@@ -25,9 +25,10 @@ class PaymentsModuleTest extends TestCase
     function creates_a_payment()
     {
         $user = factory(\App\User::class)->create();
+        $member = factory(\App\Member::class)->create();
 
         $this->actingAs($user)
-            ->get(route('payments.create'))
+            ->get(route('payments.create', ['member' => $member->id]))
             ->assertViewIs('payments.create')
             ->assertStatus(200)
             ->assertSee('Crear pago');
