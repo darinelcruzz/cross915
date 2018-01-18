@@ -25,6 +25,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'description' => 'required',
             'code' => 'required|unique:products',
+            'type' => 'required',
             'unisize' => 'sometimes|required',
             'xsmall' => 'sometimes|required',
             'small' => 'sometimes|required',
@@ -35,7 +36,7 @@ class ProductController extends Controller
             'price' => 'required',
         ]);
 
-        $product = Product::create($request->except(['img', 'sizes']));
+        $product = Product::create($request->except(['img']));
 
         if($request->img) {
             $file = $request->img;

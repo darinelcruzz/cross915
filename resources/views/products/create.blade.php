@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            {!! Field::select('sizes', ['0' => 'XS, S, M, L, XL', '1' => 'Único'], 1,
+                            {!! Field::select('type', ['sizes' => 'XS, S, M, L, XL', 'unisize' => 'Único'], 1,
                                 ['tpl' => 'templates/withicon', 'label' => 'Tamaños', 'empty' => 'Seleccione opción', 'v-model' => 'sizes'],
                                 ['icon' => 'arrows'])
                             !!}
@@ -60,7 +60,7 @@
                                 <img :src="image" width="200px"/>
                             </div>
                         </div>
-                        <div v-if="sizes != 0" class="col-md-6">
+                        <div v-if="sizes != 'sizes'" class="col-md-6">
                             {!! Field::number('unisize', ['label' => 'Cantidad', 'tpl' => 'templates/withicon'], ['icon' => 'slack']) !!}
                         </div>
                         <div v-else class="col-md-6">
