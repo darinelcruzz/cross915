@@ -11,7 +11,7 @@ use App\Member;
 class AttendenceController extends Controller
 {
 
-    public function index(Request $request)
+    function index(Request $request)
     {
         $date = $request->date == 0 ? Date::now()->format('Y-m-d') : $request->date;
         $fdate = new Date(strtotime($date));
@@ -22,14 +22,14 @@ class AttendenceController extends Controller
         return view('attendences.index', compact('date', 'fdate', 'attendences'));
     }
 
-    public function create()
+    function create()
     {
         $members = Member::pluck('name', 'id')->toArray();
 
         return view('attendences.create', compact('members'));
     }
 
-    public function store(Request $request)
+    function store(Request $request)
     {
         $this->validate($request, [
             'member_id' => 'required',
@@ -47,19 +47,19 @@ class AttendenceController extends Controller
         return redirect(route('attendences.show', [$request->member_id]));
     }
 
-    public function show(Member $member)
+    function show(Member $member)
     {
         $members = Member::pluck('name', 'id')->toArray();
 
         return view('attendences.show', compact('member', 'members'));
     }
 
-    public function edit()
+    function edit()
     {
         return view('attendences.photos');
     }
 
-    public function update(Request $request)
+    function update(Request $request)
     {
         $this->validate($request, [
             'photo' => 'required',
@@ -75,7 +75,7 @@ class AttendenceController extends Controller
         return redirect(route('attendences.edit'));
     }
 
-    public function destroy(Attendance $attendance)
+    function destroy(Attendance $attendance)
     {
         //
     }

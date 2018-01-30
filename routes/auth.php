@@ -142,6 +142,7 @@ Route::group(['prefix' => 'pagos', 'as' => 'payments.'], function () {
 Route::group(['prefix' => 'asistencias', 'as' => 'attendences.'], function () {
     $ctrl = 'AttendenceController';
     Route::get('/', usesas($ctrl, 'index'));
+    Route::post('/', usesas($ctrl, 'index'));
     Route::get('fotos', usesas($ctrl, 'edit'));
     Route::post('fotos', usesas($ctrl, 'update'));
 });

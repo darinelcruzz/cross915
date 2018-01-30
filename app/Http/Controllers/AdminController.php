@@ -22,11 +22,11 @@ class AdminController extends Controller
         $payments = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
         $sumP = Payment::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
 
-        $sales = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '0')->get();
-        $sumS = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '0')->sum('total');
+        $sales = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('credit', '0')->get();
+        $sumS = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('credit', '0')->sum('total');
 
-        $salesC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '1')->get();
-        $sumSC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('status', '1')->sum('total');
+        $salesC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('credit', '1')->get();
+        $sumSC = Sale::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->where('credit', '1')->sum('total');
 
         $deposits = Deposit::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->get();
         $sumD = Deposit::whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])->sum('amount');
