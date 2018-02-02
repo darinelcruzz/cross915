@@ -17,33 +17,36 @@
                 </div>
 
                 {!! Form::open(['method' => 'POST', 'route' => 'login', 'class' => 'form-horizontal']) !!}
-
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        {!! Field::text('email',
-                            ['label' => 'Usuario', 'value' => old('user'), 'tpl' => 'templates/withicon'],
-                            ['icon' => 'user-circle']) !!}
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            {!! Field::text('email',
+                                ['label' => 'Usuario', 'value' => old('user'), 'tpl' => 'templates/withicon'],
+                                ['icon' => 'user-circle']) !!}
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        {!! Field::password('password',
-                            ['tpl' => 'templates/withicon'], ['icon' => 'key']) !!}
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            {!! Field::password('password',
+                                ['tpl' => 'templates/withicon'], ['icon' => 'key']) !!}
+                        </div>
                     </div>
-                </div>
 
-                <br>
+                    <br>
 
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        {!! Form::submit('Entrar', ['class' => 'btn btn-danger btn-block']) !!}
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            {!! Form::submit('Entrar', ['class' => 'btn btn-danger btn-block']) !!}
+                        </div>
                     </div>
-                </div>
                 {!! Form::close() !!}
+            </div>
+            <hr>
+            <div align="center" valign="middle">
+                <a class="btn btn-danger pull" href="{{route("attendences.create")}}"></i>Asistencia</a>
             </div>
         </div>
 </body>
