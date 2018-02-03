@@ -13,4 +13,19 @@ class Product extends Model
     {
         return Storage::url("products/" . $this->img);
     }
+
+    function getQuantityAttribute()
+    {
+        if($this->type == 'sizes') {
+            return serialize([
+                'xs' => $this->xsmall,
+                's' => $this->small,
+                'm' => $this->medium,
+                'l' => $this->large,
+                'xl' => $this->xlarge,
+            ]);
+        }
+
+        return strval($this->unisize);
+    }
 }

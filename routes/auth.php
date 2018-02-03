@@ -102,6 +102,13 @@ Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
     Route::get('{product}', usesas($ctrl, 'show'));
 });
 
+Route::group(['prefix' => 'entradas', 'as' => 'entries.'], function () {
+    $ctrl = 'EntryController';
+    Route::get('/', usesas($ctrl, 'index'));
+    Route::get('crear/{product}', usesas($ctrl, 'create'));
+    Route::post('crear', usesas($ctrl, 'store'));
+});
+
 Route::group(['prefix' => 'ventas', 'as' => 'sales.'], function () {
     $ctrl = 'SaleController';
     Route::get('/', usesas($ctrl, 'index'));

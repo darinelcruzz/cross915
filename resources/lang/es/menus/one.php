@@ -41,9 +41,13 @@ return [
                 'title' => 'Crédito',
                 'route' => 'sales.pending'
             ],
-            'index' => [
+            'products' => [
                 'title' => 'Productos',
                 'route' => 'products.index'
+            ],
+            'entries' => [
+                'title' => 'Entradas',
+                'route' => 'entries.index'
             ],
         ]
     ],

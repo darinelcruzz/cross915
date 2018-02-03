@@ -71,6 +71,9 @@
                                 <td>
                                     <a href="{{ route('products.edit', ['product' => $product->id])}}">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>&nbsp;
+                                    <a href="{{ route('entries.create', ['product' => $product->id]) }}">
+                                        <i class="fa fa-sign-in"></i>
                                     </a>
                                 </td>
                             </tr>
