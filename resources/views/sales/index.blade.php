@@ -40,7 +40,10 @@
                                         {{ $sale->client_name }}
                                     </a>
                                 </td>
-                                <td>$ {{ number_format($sale->total, 2) }}</td>
+                                <td>
+                                    $ {{ number_format($sale->total, 2) }}<br>
+                                    {{ $sale->discount ? '(Se descontó $' . number_format($sale->discount, 2) . ")": ''}}
+                                </td>
                                 <td>
                                     @for ($i=1; $i < 6; $i++)
                                         @if ($sale->{"q$i"})

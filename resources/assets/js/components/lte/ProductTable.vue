@@ -23,10 +23,17 @@
             <tfoot>
                 <tr>
                     <td colspan="4"></td>
+                    <td><b>Descuento:</b></td>
+                    <td>
+                        <input type="number" name="discount" v-model="discount" step="0.01" min="0" :max="total">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
                     <td><b>Total:</b></td>
                     <td>
-                        $ {{ total | money }}
-                        <input type="hidden" name="total" :value="total">
+                        $ {{ total - discount | money }}
+                        <input type="hidden" name="total" :value="total - discount">
                     </td>
                 </tr>
             </tfoot>
@@ -39,6 +46,7 @@ export default {
     data() {
         return {
             total: 0,
+            discount: 0,
             subtotals: [0, 0, 0, 0, 0],
         };
     },

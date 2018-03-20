@@ -40,6 +40,7 @@ class SaleController extends Controller
             'client' => $request->client,
             'total' => $request->total,
             'credit' => $request->credit,
+            'discount' => $request->discount,
             'status' => $request->credit == '0'? 1: 0,
         ]);
 
@@ -84,7 +85,7 @@ class SaleController extends Controller
 
     function edit(Sale $sale)
     {
-        //
+        return "Proximamente...";
     }
 
     function update(Request $request, Sale $sale)
