@@ -42,6 +42,7 @@ Vue.component('total-to-pay', require('./components/TotalToPay.vue'));
 
 Vue.component('dropdown', require('./components/lte/DropdownButton.vue'));
 Vue.component('ddi', require('./components/lte/DropdownItem.vue'));
+Vue.component('select2', require('./components/SelectTwo.vue'));
 
 const app = new Vue({
     el: '#app',

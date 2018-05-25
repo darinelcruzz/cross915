@@ -18,8 +18,5 @@ export default {
             this.discount = response.data;
         });
     }
-}
+};
 </script>
-
-<style lang="css">
-</style>
