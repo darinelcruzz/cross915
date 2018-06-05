@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.component('v-select', VueSelect.VueSelect);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -42,7 +43,7 @@ Vue.component('total-to-pay', require('./components/TotalToPay.vue'));
 
 Vue.component('dropdown', require('./components/lte/DropdownButton.vue'));
 Vue.component('ddi', require('./components/lte/DropdownItem.vue'));
-Vue.component('select2', require('./components/SelectTwo.vue'));
+Vue.component('select2', require('./components/lte/Select2.vue'));
 
 const app = new Vue({
     el: '#app',

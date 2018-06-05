@@ -6,6 +6,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script src="https://unpkg.com/vue-select@latest"></script>
+
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- DataTables -->

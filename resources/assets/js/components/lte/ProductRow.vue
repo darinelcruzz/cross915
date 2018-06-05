@@ -5,12 +5,18 @@
         </td>
         <td>
             <div class="form-group">
-                <select class="form-control" name="products[]" v-model="product_id" style="width: 100%;">
+                <!-- <select class="form-control" name="products[]" v-model="product_id" style="width: 100%;">
                     <option value="0" selected>Seleccione un producto</option>
                     <option v-for="product in products" :value="product.id">
                         {{ product.description }}
                     </option>
-                </select>
+                </select> -->
+
+                <v-select label="description" :options="products" v-model="product_id" placeholder="Seleccione un producto...">
+                    <template slot="option" slot-scope="option" :value="option.id">
+                        {{ option.description }}
+                    </template>
+                </v-select>
             </div>
         </td>
 
@@ -55,20 +61,27 @@ export default {
             total: 0,
             price: 0,
             type: 'unisize',
-            products: []
+            products: [],
+            product: 1
         };
     },
     props: ['num'],
     methods: {
         updateTotal() {
-            if (this.product_id > 0) {
-                this.total = this.products[this.product_id].public * this.quantity;
+            if (this.product > 0) {
+                this.total = this.products[this.product].public * this.quantity;
             }
             this.$emit('subtotal', this.total, this.num);
         }
     },
     watch: {
         product_id: function (val, oldVal) {
+            // this.price = this.products[val].public;
+            // this.type = this.products[val].type;
+            this.product = val.id;
+        },
+
+        product: function (val, oldVal) {
             this.price = this.products[val].public;
             this.type = this.products[val].type;
         },
@@ -80,7 +93,9 @@ export default {
     },
     created() {
         axios.get('/products').then(response => {
-            this.products = response.data;
+            this.products = $.map(response.data, function(value, index) {
+                return [value];
+            });
         });
     }
 }
