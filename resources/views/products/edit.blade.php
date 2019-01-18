@@ -59,11 +59,16 @@
 
                     <hr>
                     <input type="hidden" name="id" value="{{ $product->id }}">
+                    <input type="hidden" name="status" value="1">
                     {!! Form::submit('Agregar', ['class' => 'btn btn-danger btn-block']) !!}
-
 
                 {!! Form::close() !!}
             </solid-box>
+        </div>
+        <div class="col-md-2"  align="center">
+            <a href="{{ route('products.disable', $product->id) }}" class="btn btn-app">
+                <i class="fa fa-minus"></i> Desactivar producto
+            </a>
         </div>
     </div>
 @endsection

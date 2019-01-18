@@ -100,6 +100,7 @@ Route::group(['prefix' => 'productos', 'as' => 'products.'], function () {
     Route::get('editar/{product}', usesas($ctrl, 'edit'));
     Route::post('editar', usesas($ctrl, 'update'));
     Route::get('{product}', usesas($ctrl, 'show'));
+    Route::get('desactivar/{product}', usesas($ctrl, 'disable'));
 });
 
 Route::group(['prefix' => 'entradas', 'as' => 'entries.'], function () {

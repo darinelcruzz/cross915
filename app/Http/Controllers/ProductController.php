@@ -89,8 +89,12 @@ class ProductController extends Controller
         return redirect(route('products.index'));
     }
 
-    public function destroy(Product $product)
+    public function disable(Product $product)
     {
-        //
+        $product->update([
+            'status' => "0"
+        ]);
+        
+        return redirect(route('products.index'));
     }
 }
