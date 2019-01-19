@@ -28087,7 +28087,7 @@ Vue.component('reset-password-form', __webpack_require__(93));
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 78 */
@@ -28101,21 +28101,21 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}", ""]);
 
 /***/ }),
 /* 82 */
@@ -46236,7 +46236,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\DiscountDetails.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/DiscountDetails.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] DiscountDetails.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46270,7 +46270,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\Example.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46304,7 +46304,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\LastPayment.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/LastPayment.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] LastPayment.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46338,7 +46338,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\MembershipDetails.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/MembershipDetails.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] MembershipDetails.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46372,7 +46372,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\TotalToPay.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/TotalToPay.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] TotalToPay.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46410,7 +46410,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\auth\\EmailResetPasswordForm.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/auth/EmailResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] EmailResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46448,7 +46448,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\auth\\LoginForm.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/auth/LoginForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] LoginForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46486,7 +46486,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\auth\\RegisterForm.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/auth/RegisterForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] RegisterForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46524,7 +46524,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\auth\\ResetPasswordForm.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/auth/ResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46558,7 +46558,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Accordion.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Accordion.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Accordion.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46592,7 +46592,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\AccordionItem.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/AccordionItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] AccordionItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46630,7 +46630,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Carousel.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Carousel.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Carousel.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46664,7 +46664,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\CarouselItem.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/CarouselItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] CarouselItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46698,7 +46698,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\CustomTabs.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/CustomTabs.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] CustomTabs.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46732,7 +46732,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\DataTable.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/DataTable.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] DataTable.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46766,7 +46766,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\DropdownButton.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/DropdownButton.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] DropdownButton.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46800,7 +46800,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\DropdownItem.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/DropdownItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] DropdownItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46834,7 +46834,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Modal.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Modal.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46868,7 +46868,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\ModalButton.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/ModalButton.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ModalButton.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46902,7 +46902,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\ProductRow.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/ProductRow.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ProductRow.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46936,7 +46936,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\ProductTable.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/ProductTable.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ProductTable.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46970,7 +46970,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Select2.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Select2.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 
 module.exports = Component.exports
@@ -46990,7 +46990,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\SimpleBox.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/SimpleBox.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SimpleBox.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47024,7 +47024,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\SolidBox.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/SolidBox.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SolidBox.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47058,7 +47058,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\TabPane.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/TabPane.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] TabPane.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47092,7 +47092,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Thumbnail.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Thumbnail.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Thumbnail.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47126,7 +47126,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\Timeline.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/Timeline.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Timeline.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47160,7 +47160,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\TimelineItem.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/TimelineItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] TimelineItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47194,7 +47194,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\TimelineLabel.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/TimelineLabel.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] TimelineLabel.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47228,7 +47228,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\UserProfile.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/UserProfile.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UserProfile.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -47262,7 +47262,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "C:\\xampp\\htdocs\\cross915\\resources\\assets\\js\\components\\lte\\UserProfileItem.vue"
+Component.options.__file = "/Applications/XAMPP/xamppfiles/htdocs/cross915/resources/assets/js/components/lte/UserProfileItem.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UserProfileItem.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -48929,7 +48929,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Producto")]), _vm._v(" "), _c('th', [_vm._v("Talla")]), _vm._v(" "), _c('th', [_vm._v("Cantidad")]), _vm._v(" "), _c('th', [_vm._v("P. Unitario")]), _vm._v(" "), _c('th', [_vm._v("Total")])])])
+  return _c('thead', [_c('tr', [_c('th', {
+    attrs: {
+      "width": "8%"
+    }
+  }, [_vm._v("#")]), _vm._v(" "), _c('th', {
+    attrs: {
+      "width": "40%"
+    }
+  }, [_vm._v("Producto")]), _vm._v(" "), _c('th', {
+    attrs: {
+      "width": "13%"
+    }
+  }, [_vm._v("Talla")]), _vm._v(" "), _c('th', {
+    attrs: {
+      "width": "13%"
+    }
+  }, [_vm._v("Cantidad")]), _vm._v(" "), _c('th', {
+    attrs: {
+      "width": "13%"
+    }
+  }, [_vm._v("P. Unitario")]), _vm._v(" "), _c('th', {
+    attrs: {
+      "width": "13%"
+    }
+  }, [_vm._v("Total")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('td', [_c('b', [_vm._v("Descuento:")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

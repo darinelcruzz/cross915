@@ -3,12 +3,12 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Producto</th>
-                    <th>Talla</th>
-                    <th>Cantidad</th>
-                    <th>P. Unitario</th>
-                    <th>Total</th>
+                    <th width="8%">#</th>
+                    <th width="40%">Producto</th>
+                    <th width="13%">Talla</th>
+                    <th width="13%">Cantidad</th>
+                    <th width="13%">P. Unitario</th>
+                    <th width="13%">Total</th>
                 </tr>
             </thead>
 
