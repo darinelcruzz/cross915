@@ -10,7 +10,7 @@
 
 @section('main-content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <simple-box title="Agregar datos" color="danger">
                 {!! Form::open(['method' => 'POST', 'route' => 'sales.store', 'enctype' => 'multipart/form-data']) !!}
                     <select name="client" class="form-control select2" style="width: 100%;">
