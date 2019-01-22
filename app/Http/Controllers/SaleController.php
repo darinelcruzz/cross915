@@ -56,23 +56,25 @@ class SaleController extends Controller
                 continue;
             }
 
-            if ($sizes[$i - 1] == 'unisize') {
-                $stock = $product->unisize - $quantities[$i - 1];
-                $product->update([
-                    'unisize' => $stock
-                ]);
-            } else {
-                $before = $product->{$sizes[$i - 1]};
-                $product->update([
-                    "{$sizes[$i - 1]}" => $before - $quantities[$i - 1]
+            if ($quantities[$i - 1] != 0) {
+                if ($sizes[$i - 1] == 'unisize') {
+                    $stock = $product->unisize - $quantities[$i - 1];
+                    $product->update([
+                        'unisize' => $stock
+                    ]);
+                } else {
+                    $before = $product->{$sizes[$i - 1]};
+                    $product->update([
+                        "{$sizes[$i - 1]}" => $before - $quantities[$i - 1]
+                    ]);
+                }
+
+                $sale->update([
+                    "p$i" => $products[$i - 1],
+                    "q$i" => $quantities[$i - 1],
+                    "a$i" => $amounts[$i - 1],
                 ]);
             }
-
-            $sale->update([
-                "p$i" => $products[$i - 1],
-                "q$i" => $quantities[$i - 1],
-                "a$i" => $amounts[$i - 1],
-            ]);
         }
 
         return redirect(route('sales.index'));

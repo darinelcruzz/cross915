@@ -17,6 +17,7 @@
                         {{ option.description }}
                     </template>
                 </v-select>
+                <input type="hidden" name="products[]" :value="product">
             </div>
         </td>
 
