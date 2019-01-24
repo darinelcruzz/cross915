@@ -5,14 +5,7 @@
         </td>
         <td>
             <div class="form-group">
-                <!-- <select class="form-control" name="products[]" v-model="product_id" style="width: 100%;">
-                    <option value="0" selected>Seleccione un producto</option>
-                    <option v-for="product in products" :value="product.id">
-                        {{ product.description }}
-                    </option>
-                </select> -->
-
-                <v-select label="description" :options="products" v-model="product_id" placeholder="Seleccione un producto...">
+                <v-select label="description" :options="products" v-model="product" placeholder="Seleccione un producto...">
                     <template slot="option" slot-scope="option" :value="option.id">
                         {{ option.description }}
                     </template>
@@ -57,34 +50,26 @@
 export default {
     data() {
         return {
-            product_id: 0,
+            product: {},
             quantity: 0,
             total: 0,
             price: 0,
             type: 'unisize',
-            products: [],
-            product: 1
         };
     },
-    props: ['num'],
+    props: ['num', 'products'],
     methods: {
         updateTotal() {
-            if (this.product > 0) {
-                this.total = this.products[this.product].public * this.quantity;
+            if (this.product.id > 0) {
+                this.total = this.product.public * this.quantity;
             }
             this.$emit('subtotal', this.total, this.num);
         }
     },
     watch: {
-        product_id: function (val, oldVal) {
-            // this.price = this.products[val].public;
-            // this.type = this.products[val].type;
-            this.product = val.id;
-        },
-
         product: function (val, oldVal) {
-            this.price = this.products[val].public;
-            this.type = this.products[val].type;
+            this.price = this.product.public;
+            this.type = this.product.type;
         },
     },
     filters: {
@@ -92,12 +77,5 @@ export default {
         return value.toFixed(2);
       }
     },
-    created() {
-        axios.get('/products').then(response => {
-            this.products = $.map(response.data, function(value, index) {
-                return [value];
-            });
-        });
-    }
-}
+};
 </script>

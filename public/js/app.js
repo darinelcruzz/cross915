@@ -27615,61 +27615,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            product_id: 0,
+            product: {},
             quantity: 0,
             total: 0,
             price: 0,
-            type: 'unisize',
-            products: [],
-            product: 1
+            type: 'unisize'
         };
     },
 
-    props: ['num'],
+    props: ['num', 'products'],
     methods: {
         updateTotal: function updateTotal() {
-            if (this.product > 0) {
-                this.total = this.products[this.product].public * this.quantity;
+            if (this.product.id > 0) {
+                this.total = this.product.public * this.quantity;
             }
             this.$emit('subtotal', this.total, this.num);
         }
     },
     watch: {
-        product_id: function product_id(val, oldVal) {
-            // this.price = this.products[val].public;
-            // this.type = this.products[val].type;
-            this.product = val.id;
-        },
-
         product: function product(val, oldVal) {
-            this.price = this.products[val].public;
-            this.type = this.products[val].type;
+            this.price = this.product.public;
+            this.type = this.product.type;
         }
     },
     filters: {
         twoDecimals: function twoDecimals(value) {
             return value.toFixed(2);
         }
-    },
-    created: function created() {
-        var _this = this;
-
-        axios.get('/products').then(function (response) {
-            _this.products = $.map(response.data, function (value, index) {
-                return [value];
-            });
-        });
     }
 });
 
@@ -27728,6 +27704,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             total: 0,
             discount: 0,
+            products: [],
             subtotals: [0, 0, 0, 0, 0]
         };
     },
@@ -27744,6 +27721,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         money: function money(value) {
             return value.toFixed(2);
         }
+    },
+    created: function created() {
+        var _this = this;
+
+        axios.get('/products').then(function (response) {
+            _this.products = $.map(response.data, function (value, index) {
+                return value;
+            });
+
+            console.log("Productos: ", _this.products);
+        });
     }
 });
 
@@ -48559,11 +48547,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }]),
     model: {
-      value: (_vm.product_id),
+      value: (_vm.product),
       callback: function($$v) {
-        _vm.product_id = $$v
+        _vm.product = $$v
       },
-      expression: "product_id"
+      expression: "product"
     }
   }), _vm._v(" "), _c('input', {
     attrs: {
@@ -48864,35 +48852,40 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "table table-bordered table-striped"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', [_c('prow', {
     attrs: {
-      "num": 1
+      "num": 1,
+      "products": _vm.products
     },
     on: {
       "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 2
+      "num": 2,
+      "products": _vm.products
     },
     on: {
       "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 3
+      "num": 3,
+      "products": _vm.products
     },
     on: {
       "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 4
+      "num": 4,
+      "products": _vm.products
     },
     on: {
       "subtotal": _vm.addToTotal
     }
   }), _vm._v(" "), _c('prow', {
     attrs: {
-      "num": 5
+      "num": 5,
+      "products": _vm.products
     },
     on: {
       "subtotal": _vm.addToTotal

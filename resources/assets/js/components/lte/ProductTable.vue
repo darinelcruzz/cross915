@@ -13,11 +13,11 @@
             </thead>
 
             <tbody>
-                <prow :num="1" @subtotal="addToTotal"></prow>
-                <prow :num="2" @subtotal="addToTotal"></prow>
-                <prow :num="3" @subtotal="addToTotal"></prow>
-                <prow :num="4" @subtotal="addToTotal"></prow>
-                <prow :num="5" @subtotal="addToTotal"></prow>
+                <prow :num="1" @subtotal="addToTotal" :products="products"></prow>
+                <prow :num="2" @subtotal="addToTotal" :products="products"></prow>
+                <prow :num="3" @subtotal="addToTotal" :products="products"></prow>
+                <prow :num="4" @subtotal="addToTotal" :products="products"></prow>
+                <prow :num="5" @subtotal="addToTotal" :products="products"></prow>
             </tbody>
 
             <tfoot>
@@ -47,6 +47,7 @@ export default {
         return {
             total: 0,
             discount: 0,
+            products: [],
             subtotals: [0, 0, 0, 0, 0],
         };
     },
@@ -62,6 +63,15 @@ export default {
       money: function (value) {
         return value.toFixed(2);
       }
+    },
+    created() {
+        axios.get('/products').then((response) => {
+            this.products = $.map(response.data, function(value, index) {
+                return value;
+            });
+
+            console.log("Productos: ", this.products);
+        });
     }
-}
+};
 </script>
