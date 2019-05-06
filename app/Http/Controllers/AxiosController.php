@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Member;
 
 class AxiosController extends Controller
 {
@@ -12,6 +13,13 @@ class AxiosController extends Controller
             ->select('id', 'description', 'public', 'type')
             ->get();
         return $products->keyBy('id');
+    }
+
+    function member($member_id)
+    {
+        return Member::whereId($member_id)
+            ->with('membership:id,name,amount', 'payments.discount')
+            ->first();
     }
 
     function memberships()

@@ -19,6 +19,11 @@ class Member extends Model
         return $this->belongsTo(Membership::class);
     }
 
+    function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
     function getBirthdayAttribute()
     {
         $birthdate = new Date(strtotime($this->birthdate));

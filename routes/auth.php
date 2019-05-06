@@ -9,6 +9,7 @@ Route::get('products', usesas('AxiosController', 'products'));
 Route::get('memberships', usesas('AxiosController', 'memberships'));
 Route::get('discounts', usesas('AxiosController', 'discounts'));
 Route::get('payments', usesas('AxiosController', 'payments'));
+Route::get('member/{member}', usesas('AxiosController', 'member'));
 
 Route::get('/', function () {
     return view('home');

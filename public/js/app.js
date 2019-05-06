@@ -26778,29 +26778,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['member'],
     data: function data() {
         return {
-            memberships: [],
-            discounts: [],
-            payments: []
+            payment: [],
+            memberr: {}
         };
+    },
+
+    computed: {
+        discount: function discount() {
+            if (this.payment.discount_id) {
+                return this.payment.discount.name + ' ($ ' + this.payment.discount.amount.toFixed(2) + ')';
+            }
+
+            return '$ 0.00';
+        }
     },
     created: function created() {
         var _this = this;
 
-        axios.get('/memberships').then(function (response) {
-            _this.memberships = response.data;
-        });
+        axios.get('/member/' + this.member).then(function (response) {
+            _this.memberr = response.data;
 
-        axios.get('/discounts').then(function (response) {
-            _this.discounts = response.data;
-        });
-
-        axios.get('/payments').then(function (response) {
-            _this.payments = response.data;
+            _this.payment = _this.memberr.payments[_this.memberr.payments.length - 1];
         });
     }
 });
@@ -48823,7 +48829,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "box-body"
   }, [_c('table', {
     staticClass: "table"
-  }, [_vm._m(1), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v(_vm._s(_vm.memberships[_vm.payments[_vm.member].membership_id].name))]), _vm._v(" "), _c('td', [_vm._v("$ " + _vm._s(_vm.payments[_vm.member].amount) + ".00")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.payments[_vm.member].discount_id ? _vm.discounts[_vm.payments[_vm.member].discount_id].name : 'N/A') + " ($ " + _vm._s(_vm.payments[_vm.member].discount_id ? _vm.discounts[_vm.payments[_vm.member].discount_id].amount : '0') + ".00)")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.payments[_vm.member].date_start))])])])])])])])
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_vm._v("\n                            " + _vm._s(_vm.memberr.membership.name) + " "), _c('br'), _vm._v("\n                            $ " + _vm._s((_vm.memberr.membership.amount).toFixed(2)) + "\n                        ")]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.discount))]), _vm._v(" "), _c('td', [_vm._v("$ " + _vm._s((_vm.payment.amount).toFixed(2)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.payment.date_start))])])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "box-header with-border"
@@ -48831,7 +48837,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "box-title"
   }, [_vm._v("Último pago")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Membresía")]), _vm._v(" "), _c('th', [_vm._v("Monto")]), _vm._v(" "), _c('th', [_vm._v("Descuento")]), _vm._v(" "), _c('th', [_vm._v("A partir de")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Membresía")]), _vm._v(" "), _c('th', [_vm._v("Descuento")]), _vm._v(" "), _c('th', [_vm._v("Total")]), _vm._v(" "), _c('th', [_vm._v("Fecha")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
