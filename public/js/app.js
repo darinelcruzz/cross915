@@ -48565,7 +48565,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": "products[]"
     },
     domProps: {
-      "value": _vm.product
+      "value": _vm.product.id
     }
   })], 1)]), _vm._v(" "), _c('td', {
     attrs: {

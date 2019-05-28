@@ -33,7 +33,8 @@ class SaleController extends Controller
     {
         $this->validate($request, [
             'client' => 'required',
-            'credit' => 'required'
+            'credit' => 'required',
+            'products' => 'required|array|min:1'
         ]);
 
         $sale = Sale::create([
